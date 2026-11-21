@@ -1,0 +1,880 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>국내 방산 10개사 현황</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+/* Layout: 관리용 대장(臺帳) — 상단 문서 헤더 + 3개 탭 페이지, 표 중심, 회사별 고정 색 */
+:root{
+  --bg:#eef1f0; --paper:#ffffff; --ink:#151c24; --muted:#5b6670; --line:#d5dbdc; --soft:#e6eaea;
+  --accent:#1d4f63; --accent-soft:#dbe8ec;
+  --c-kai:#3b4fa6; --c-ha:#c9561f; --c-hs:#9a720b; --c-lig:#24795c; --c-ka:#1f7fa3;
+  --c-rotem:#b3262e; --c-kia:#4b5563; --c-wia:#7b4bb0; --c-hhi:#6b7a1a; --c-hwo:#b8336a;
+  --st-plan:#6b6f80; --st-tech:#7b4fb3; --st-dev:#2563b0; --st-bid:#a8551a; --st-prod:#2d7d46; --st-export:#0f7a7a; --st-up:#8a6a10; --st-sup:#5c6470; --st-done:#4a5560;
+  --warn:#b4371f; --warn-soft:#f7e3dd;
+  --f-display:"Noto Serif KR","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10161b; --paper:#172027; --ink:#e4e9ec; --muted:#97a3ab; --line:#2c3842; --soft:#1e2930;
+  --accent:#7fc0d6; --accent-soft:#1b3440;
+  --c-kai:#8c9cf0; --c-ha:#f08a57; --c-hs:#d9b24a; --c-lig:#5cc79c; --c-ka:#5fc0e3;
+  --c-rotem:#f07178; --c-kia:#aab3bf; --c-wia:#b896e6; --c-hhi:#b8c95a; --c-hwo:#f07aaa;
+  --st-plan:#a3a7b8; --st-tech:#b994ec; --st-dev:#7fb0f0; --st-bid:#e69a62; --st-prod:#6fc98a; --st-export:#5ccfcf; --st-up:#d8b752; --st-sup:#a2abb6; --st-done:#9aa5b0;
+  --warn:#f08a74; --warn-soft:#3a2420; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10161b; --paper:#172027; --ink:#e4e9ec; --muted:#97a3ab; --line:#2c3842; --soft:#1e2930;
+  --accent:#7fc0d6; --accent-soft:#1b3440;
+  --c-kai:#8c9cf0; --c-ha:#f08a57; --c-hs:#d9b24a; --c-lig:#5cc79c; --c-ka:#5fc0e3;
+  --c-rotem:#f07178; --c-kia:#aab3bf; --c-wia:#b896e6; --c-hhi:#b8c95a; --c-hwo:#f07aaa;
+  --st-plan:#a3a7b8; --st-tech:#b994ec; --st-dev:#7fb0f0; --st-bid:#e69a62; --st-prod:#6fc98a; --st-export:#5ccfcf; --st-up:#d8b752; --st-sup:#a2abb6; --st-done:#9aa5b0;
+  --warn:#f08a74; --warn-soft:#3a2420; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.6;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* header */
+.top{border-bottom:1px solid var(--line);background:var(--paper)}
+.top .wrap{padding-block:22px 0}
+.doc-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.02em}
+.doc-meta b{color:var(--ink);font-weight:500}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3.4vw,34px);line-height:1.25;margin:8px 0 4px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 16px;max-width:70ch}
+nav.tabs{display:flex;gap:4px;overflow-x:auto}
+nav.tabs a{display:block;padding:10px 16px 11px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a span{font-family:var(--f-mono);font-size:11px;font-weight:400;margin-right:6px;opacity:.8}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs a:hover{color:var(--ink)}
+
+main .wrap{padding-block:26px 56px;display:grid;gap:34px}
+section{display:grid;gap:14px;min-width:0}
+h2{font-family:var(--f-display);font-size:21px;margin:0;text-wrap:balance;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--f-mono);font-size:11px;color:var(--muted);font-weight:400;letter-spacing:.06em}
+.note{font-size:12.5px;color:var(--muted);margin:0;max-width:110ch}
+.note b{color:var(--ink);font-weight:600}
+
+/* tables */
+.tbl-box{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody th{font-weight:600;color:var(--muted);font-size:12px;white-space:nowrap;background:var(--soft)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.sub{display:block;font-size:11.5px;color:var(--muted)}
+.co{display:inline-flex;align-items:center;gap:7px;font-weight:700;color:var(--ink);white-space:nowrap}
+.co i{width:10px;height:10px;border-radius:2px;background:var(--cc);flex:none}
+.cmp th.colhead{border-top:3px solid var(--cc)}
+.sup{font-family:var(--f-mono);font-size:10.5px;vertical-align:super;line-height:0;margin-left:2px;text-decoration:none}
+.flag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:3px;background:var(--warn-soft);color:var(--warn);font-weight:600;margin-top:4px}
+
+/* backlog bars */
+.bars{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px}
+.bar{display:grid;grid-template-columns:150px 1fr 92px;gap:12px;align-items:center}
+.bar .track{height:16px;background:var(--soft);border-radius:2px;position:relative}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--cc);border-radius:2px}
+.bar .prev{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.55}
+.bar .val{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;font-size:13px}
+.bar .lab{font-size:12.5px;min-width:0}
+.bar .lab .sub{font-size:11px}
+.axis{display:grid;grid-template-columns:150px 1fr 92px;gap:12px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted)}
+.axis div:nth-child(2){display:flex;justify-content:space-between}
+@media (max-width:640px){.bar,.axis{grid-template-columns:96px 1fr 62px;gap:8px}}
+
+/* matrix */
+.mx td,.mx th{text-align:center;padding:8px 6px}
+.mx tbody th{text-align:left}
+.mx thead th{white-space:normal;min-width:64px;line-height:1.3}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--cc)}
+.ring{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--cc)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* map */
+.mapgrid{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:16px;align-items:start}
+@media (max-width:820px){.mapgrid{grid-template-columns:1fr}}
+.mapbox{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px}
+.mapbox svg{width:100%;height:auto;display:block}
+.land{fill:var(--soft);stroke:var(--muted);stroke-width:.8}
+.city text{font-size:11px;fill:var(--ink);font-family:var(--f-body)}
+.city .hit{fill:transparent}
+.city.on text{font-weight:700}
+.sites{display:grid;gap:8px;min-width:0}
+.site-row{display:grid;grid-template-columns:86px 1fr;gap:10px;padding:8px 10px;background:var(--paper);border:1px solid var(--line);border-radius:5px}
+.site-row.on{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.site-row h4{margin:0;font-size:13px}
+.site-row ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:12.5px;min-width:0}
+.site-row li{display:flex;gap:6px;align-items:baseline}
+.site-row li i{width:8px;height:8px;border-radius:2px;background:var(--cc);flex:none;transform:translateY(-1px)}
+.overseas{font-size:12.5px;background:var(--paper);border:1px dashed var(--line);border-radius:5px;padding:10px 12px}
+
+/* issues */
+.issues{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.issue{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--cc);border-radius:5px;padding:12px 14px;display:grid;gap:6px;align-content:start}
+.issue p{margin:0;font-size:12.5px}
+
+/* programs */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chipbtn{font:inherit;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chipbtn i{width:9px;height:9px;border-radius:2px;background:var(--cc)}
+.chipbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+select{font:inherit;font-size:12.5px;padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.count{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-left:auto}
+.stage{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap;color:var(--sc);background:color-mix(in srgb,var(--sc) 13%,transparent);border:1px solid color-mix(in srgb,var(--sc) 35%,transparent)}
+.pipeline{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+.pg td{font-size:13px}
+.pg td.nm{font-weight:600;min-width:150px}
+.pg td.ds{min-width:260px;max-width:52ch}
+.pg td.area{white-space:nowrap;color:var(--muted);font-size:12px}
+.pg tr.grp td{background:var(--soft);font-weight:700;padding-block:7px;border-top:2px solid var(--cc)}
+.pg td.st{white-space:nowrap}
+.pg td.st .sub{margin-top:3px}
+
+/* projects */
+.pj td{font-size:12.8px}
+.pj td.nm{min-width:170px;max-width:24ch}
+.pj td.nm b{display:block;font-size:13.5px;line-height:1.4}
+.pj td.nm .area{display:inline-block;margin-bottom:3px;font-size:11px;color:var(--muted);font-family:var(--f-mono);letter-spacing:.03em}
+.pj td.ds{min-width:200px;max-width:36ch}
+.pj td.sz{min-width:150px;max-width:26ch;font-variant-numeric:tabular-nums}
+.pj td.ps{min-width:210px;max-width:30ch}
+.pj td.stt{min-width:170px;max-width:28ch}
+.role{display:grid;grid-template-columns:42px 1fr;gap:4px;align-items:baseline;margin-bottom:3px}
+.role>span:first-child{font-size:10.5px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.role.cmp>span:first-child{color:var(--st-bid)}
+.cchip{display:inline-flex;align-items:center;gap:4px;font-weight:700;white-space:nowrap}
+.cchip i{width:8px;height:8px;border-radius:2px;background:var(--cc)}
+.pj tr.sec td{background:var(--ink);color:var(--paper);font-weight:700;font-size:13px;padding-block:8px;letter-spacing:.02em}
+.pj tr.sec td small{font-weight:400;opacity:.75;margin-left:8px}
+.kind{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.kind.run{color:var(--st-prod);background:color-mix(in srgb,var(--st-prod) 13%,transparent);border:1px solid color-mix(in srgb,var(--st-prod) 35%,transparent)}
+.kind.next{color:var(--st-bid);background:color-mix(in srgb,var(--st-bid) 13%,transparent);border:1px solid color-mix(in srgb,var(--st-bid) 35%,transparent)}
+.mkt{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:3px;border:1px solid var(--line);color:var(--muted);margin-left:4px;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{font:inherit;font-size:12.5px;font-weight:600;padding:6px 12px;border:0;background:var(--paper);color:var(--ink);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sumrow{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;color:var(--muted)}
+.sumrow b{color:var(--ink);font-family:var(--f-mono)}
+
+/* sources */
+.src-group{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:8px;border-left:4px solid var(--cc)}
+.src-group h3{margin:0;font-size:15px}
+.src-group ol{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.src-group li{display:grid;grid-template-columns:44px 1fr;gap:8px;font-size:12.5px}
+.src-group li .id{font-family:var(--f-mono);color:var(--muted)}
+.src-group li a{word-break:break-all}
+.src-group li .what{display:block;color:var(--muted);font-size:12px}
+.basis{background:var(--accent-soft);border-radius:6px;padding:14px 16px;font-size:13px;display:grid;gap:6px}
+.basis p{margin:0}
+[data-page]{display:none}
+[data-page].show{display:grid}
+@media (prefers-reduced-motion:no-preference){[data-page].show{animation:fade .25s ease-out}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="doc-meta"><span>문서 <b>방산업체 관리대장</b></span><span>기준일 <b>2026.10.31</b></span><span>대상 <b>10개사</b></span><span>단위 <b>억원(별도 표기 제외)</b></span></div>
+    <h1>국내 방산 10개사 현황</h1>
+    <p class="lede">한국항공우주산업·한화에어로스페이스·한화시스템·LIG D&amp;A·대한항공·현대로템·기아·현대위아·HD현대중공업·한화오션의 기업·재무·사업장·무기체계 사업을 공시 기준으로 정리한 관리 문서입니다. 숫자 옆 위첨자는 4페이지 출처 번호입니다.</p>
+    <nav class="tabs" aria-label="페이지">
+      <a href="#overview" data-tab="overview"><span>P1</span>기업·재무·사업장</a>
+      <a href="#programs" data-tab="programs"><span>P2</span>무기체계 사업현황</a>
+      <a href="#projects" data-tab="projects"><span>P3</span>사업별 진행현황</a>
+      <a href="#sources" data-tab="sources"><span>P4</span>출처</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<!-- ============ PAGE 1 ============ -->
+<div data-page="overview" style="gap:34px">
+
+<section>
+  <h2>1. 기업현황 <small>COMPANY PROFILE</small></h2>
+  <div class="tbl-box">
+  <table>
+    <thead><tr><th>회사</th><th>설립</th><th>상장(코드)</th><th>대표이사</th><th>본사·주요 거점</th><th>최대주주</th><th>방산 주력</th><th>출처</th></tr></thead>
+    <tbody id="profBody"></tbody>
+  </table>
+  </div>
+  <p class="note">한화오션은 한화에어로스페이스의 연결자회사이고, 현대로템·기아·현대위아는 현대자동차가 최대주주인 현대차그룹 계열사입니다. 현대위아 방산(특수사업부)은 ’27.3 현대로템으로 이관될 예정입니다.</p>
+</section>
+
+<section>
+  <h2>2. 재무현황 <small>FINANCIALS · K-IFRS 연결</small></h2>
+  <div class="tbl-box">
+  <table>
+    <thead><tr>
+      <th>회사</th>
+      <th class="num">2025 매출</th><th class="num">2025 영업이익</th><th class="num">영업이익률</th><th class="num">2025 순이익</th>
+      <th>2026 누적(최신 공시)</th><th class="num">매출</th><th class="num">영업이익</th><th class="num">이익률</th>
+      <th>재무 메모</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-kai)"><i></i>KAI</span></td>
+        <td class="num">36,964<a class="sup" href="#sources">S01</a></td><td class="num">2,692</td><td class="num">7.3%</td><td class="num">1,873</td>
+        <td>1~2Q<span class="sub">3Q 미발표</span></td><td class="num">22,606<a class="sup" href="#sources">S02</a></td><td class="num">1,155</td><td class="num">5.1%</td>
+        <td>차입금·사채 2조 9,801억(’26 상반기)<a class="sup" href="#sources">S04</a><span class="sub">’26 매출 가이던스 5조 7,306억</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-ha)"><i></i>한화에어로</span></td>
+        <td class="num">266,078<a class="sup" href="#sources">S12</a></td><td class="num">30,345</td><td class="num">11.4%</td><td class="num">21,417</td>
+        <td>1~2Q<span class="sub">3Q 11월 발표 예정</span></td><td class="num">150,439<a class="sup" href="#sources">S13</a></td><td class="num">20,044</td><td class="num">13.3%</td>
+        <td>한화오션·한화시스템 연결 포함<span class="sub">사업보고서 확정치 26조 7,029억 / 3조 893억</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-hs)"><i></i>한화시스템</span></td>
+        <td class="num">36,641<a class="sup" href="#sources">S20</a></td><td class="num">1,236</td><td class="num">3.4%</td><td class="num">2,159</td>
+        <td>3Q 단일분기<span class="sub">필리조선소 중단영업 분류</span></td><td class="num">8,316<a class="sup" href="#sources">S21</a></td><td class="num">991</td><td class="num">11.9%</td>
+        <td>3Q 순이익 38억(중단영업 손실)<span class="sub">재분류 후 ’25 영업이익 1,199억</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-lig)"><i></i>LIG D&amp;A</span></td>
+        <td class="num">43,069<a class="sup" href="#sources">S26</a></td><td class="num">3,229</td><td class="num">7.5%</td><td class="num">2,116<span class="sub">잠정</span></td>
+        <td>1~2Q</td><td class="num">22,780<a class="sup" href="#sources">S27</a></td><td class="num">2,768</td><td class="num">12.2%</td>
+        <td>부채비율 440%(’26.1Q)<a class="sup" href="#sources">S51</a><span class="sub">우선주 증자 5,320억 납입 11.13 예정</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-ka)"><i></i>대한항공</span><span class="sub">별도 기준</span></td>
+        <td class="num">165,019<a class="sup" href="#sources">S36</a></td><td class="num">15,393</td><td class="num">9.3%</td><td class="num">9,650</td>
+        <td>1~3Q</td><td class="num">145,798<a class="sup" href="#sources">S38</a></td><td class="num">11,999</td><td class="num">8.2%</td>
+        <td>항공우주사업본부 ’25 매출 7,796억·영업이익 243억(흑자전환)<a class="sup" href="#sources">S39</a><span class="sub">부채비율 244%(별도, ’25말)</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-rotem)"><i></i>현대로템</span></td>
+        <td class="num">58,390<a class="sup" href="#sources">S90</a></td><td class="num">10,056</td><td class="num">17.2%</td><td class="num">7,704<span class="sub">분기 합산</span></td>
+        <td>1~3Q</td><td class="num">46,842<a class="sup" href="#sources">S90b</a></td><td class="num">7,037</td><td class="num">15.0%</td>
+        <td>수주잔고 29조 1,420억(’26.3Q) 중 방산 포함 AD&amp;RH 9조 5,228억<span class="sub">현대위아 특수사업부 인수 3,584억(’27.3 종결)</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-kia)"><i></i>기아</span><span class="sub">전사(자동차 포함)</span></td>
+        <td class="num">114.2조<a class="sup" href="#sources">S92b</a></td><td class="num">9.07조</td><td class="num">7.9%</td><td class="num">7.55조</td>
+        <td>1~2Q<span class="sub">분기 합산</span></td><td class="num">62.5조</td><td class="num">4.84조</td><td class="num">7.7%</td>
+        <td>방산 매출 별도 미공시<span class="sub">특수차량 ’26.1~9월 판매 5,484대(+52.5%)</span><a class="sup" href="#sources">S92</a></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-wia)"><i></i>현대위아</span><span class="sub">전사</span></td>
+        <td class="num">8.48조<a class="sup" href="#sources">S93c</a></td><td class="num">2,043</td><td class="num">2.4%</td><td class="num">1,646</td>
+        <td>1~2Q<span class="sub">분기 합산</span></td><td class="num">4.53조</td><td class="num">1,020</td><td class="num">2.3%</td>
+        <td>특수사업부(방산) ’25 매출 3,931억(전사 4.6%)<a class="sup" href="#sources">S93</a><span class="sub">현대로템 양도 결정(10.19)</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-hhi)"><i></i>HD현대중공업</span><span class="sub">전사(상선 포함)</span></td>
+        <td class="num">17.57조<a class="sup" href="#sources">S95b</a></td><td class="num">20,426</td><td class="num">11.6%</td><td class="num">14,225</td>
+        <td>1~3Q<span class="sub">분기 합산</span></td><td class="num">17.94조</td><td class="num">약 2.83조</td><td class="num">15.8%</td>
+        <td>’26.2Q 함정 매출 3,010억·영업이익 180억(이익률 6.0%)<a class="sup" href="#sources">S95</a><span class="sub">’25.12 HD현대미포 합병</span></td>
+      </tr>
+      <tr>
+        <td><span class="co" style="--cc:var(--c-hwo)"><i></i>한화오션</span><span class="sub">전사(상선 포함)</span></td>
+        <td class="num">12.68조<a class="sup" href="#sources">S100b</a></td><td class="num">11,091</td><td class="num">8.7%</td><td class="num">11,727</td>
+        <td>1~3Q<span class="sub">분기 합산</span></td><td class="num">12.06조</td><td class="num">16,629</td><td class="num">13.8%</td>
+        <td>’26.3Q 특수선 매출 3,630억·영업손실 706억<a class="sup" href="#sources">S100</a><span class="sub">전사 수주잔고 약 48조(대부분 상선)</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">2025 수치는 연간 실적 공시 기준이며, ‘분기 합산’은 분기별 잠정실적 공시를 더한 값입니다(‘조’ 표기는 반올림 수치 합산). 대한항공은 회사 전체(별도), 기아·현대위아·HD현대중공업·한화오션은 비방산을 포함한 전사 실적입니다. 한화에어로스페이스 연결 실적에는 한화오션·한화시스템이 포함되어 있어 합산하면 중복됩니다. 방산 규모 비교는 아래 수주잔고를 함께 보십시오.</p>
+
+  <div class="bars" role="img" aria-label="방산 수주잔고 비교">
+    <div class="axis"><div>방산 수주잔고</div><div><span>0</span><span>10조</span><span>20조</span><span>30조</span><span>40조</span></div><div style="text-align:right">조원</div></div>
+    <div class="bar" style="--cc:var(--c-ha)"><div class="lab"><b>한화에어로</b><span class="sub">지상방산 · ’26.2Q</span></div><div class="track"><div class="fill" style="width:95.75%"></div><div class="prev" style="left:93%" title="’25말 37.2조"></div></div><div class="val">38.3</div></div>
+    <div class="bar" style="--cc:var(--c-kai)"><div class="lab"><b>KAI</b><span class="sub">전사 · ’25말</span></div><div class="track"><div class="fill" style="width:68.36%"></div></div><div class="val">27.3</div></div>
+    <div class="bar" style="--cc:var(--c-lig)"><div class="lab"><b>LIG D&amp;A</b><span class="sub">전사 · ’26.2Q</span></div><div class="track"><div class="fill" style="width:61.5%"></div><div class="prev" style="left:65.63%" title="’25말 26.25조"></div></div><div class="val">24.6</div></div>
+    <div class="bar" style="--cc:var(--c-rotem)"><div class="lab"><b>현대로템</b><span class="sub">AD&amp;RH · ’26.3Q</span></div><div class="track"><div class="fill" style="width:23.81%"></div></div><div class="val">9.5</div></div>
+    <div class="bar" style="--cc:var(--c-hs)"><div class="lab"><b>한화시스템</b><span class="sub">방산+ICT · ’26.3Q</span></div><div class="track"><div class="fill" style="width:22.16%"></div><div class="prev" style="left:30.5%" title="’25말 12.2조"></div></div><div class="val">8.9</div></div>
+    <div class="bar" style="--cc:var(--c-ka)"><div class="lab"><b>대한항공</b><span class="sub">항공우주 · ’26.1Q</span></div><div class="track"><div class="fill" style="width:11.79%"></div></div><div class="val">4.7</div></div>
+  </div>
+  <p class="note">세로선은 2025년 말 잔고. 한화시스템 ’26.3Q 잔고는 필리조선소 제외 수치(방산 8조 3,956억 + ICT 4,697억). 대한항공 4.7조 중 방산(군용기 MROU·무인기)은 2조 6,866억이고 나머지는 민항기 기체. 현대로템은 방산 포함 항공·방산·로보틱스·수소 부문(AD&amp;RH) 잔고. 조선 2사는 방산 잔고를 따로 공시하지 않아 제외했습니다. 출처 S01·S13·S14·S21·S27·S28·S40·S90b.</p>
+</section>
+
+<section>
+  <h2>3. 사업영역 <small>무기체계 분류 기준</small></h2>
+  <div class="tbl-box">
+  <table class="mx">
+    <thead><tr><th>회사</th>
+      <th>고정익<br>항공기</th><th>회전익</th><th>무인기</th><th>항공<br>엔진</th><th>지상<br>(기동·화력)</th><th>유도무기<br>·대공</th><th>감시정찰<br>(레이다)</th><th>지휘통제<br>·통신</th><th>전자전<br>·항공전자</th><th>함정<br>·해양</th><th>우주</th><th>MRO<br>·후속지원</th>
+    </tr></thead>
+    <tbody id="mxBody"></tbody>
+  </table>
+  </div>
+  <div class="legend"><span><i class="dot" style="--cc:var(--muted)"></i>주력 사업(체계종합·핵심 매출)</span><span><i class="ring" style="--cc:var(--muted)"></i>참여(구성품·협력·추진)</span></div>
+</section>
+
+<section>
+  <h2>4. 주요 사업장 위치 <small>국내 사업장 · 지도는 개략 위치</small></h2>
+  <div class="mapgrid">
+    <div class="mapbox"><svg id="map" viewBox="0 0 400 640" aria-label="국내 사업장 지도"></svg></div>
+    <div class="sites" id="siteList"></div>
+  </div>
+  <div class="overseas"><b>해외 거점</b> — 한화에어로스페이스: 호주 질롱 H-ACE(K9·레드백 생산)<a class="sup" href="#sources">S18</a> · 폴란드 천무 유도탄 현지 생산 추진<a class="sup" href="#sources">S50</a> / 한화시스템: 미국 필리조선소(매각 결정, 중단영업)<a class="sup" href="#sources">S53</a> / LIG D&amp;A: 미국 고스트로보틱스(자회사) · 독일 뮌헨 유럽대표사무소<a class="sup" href="#sources">S35</a> / 현대로템: 폴란드 PGZ와 K2PL 현지 생산<a class="sup" href="#sources">S91</a> / 기아: 폴란드 로소막과 KLTV(레그완) 협력<a class="sup" href="#sources">S92</a> / HD현대중공업: 필리핀 수빅 HD현대필리핀조선소, 페루 SIMA 공동건조<a class="sup" href="#sources">S95</a></div>
+</section>
+
+<section>
+  <h2>5. 주요 이슈 <small>’26.10 기준</small></h2>
+  <div class="issues">
+    <div class="issue" style="--cc:var(--c-kai)"><span class="co" style="--cc:var(--c-kai)"><i></i>KAI</span><p>KF-21 양산 1호기 공군 인도(9.22). 2Q LAH 납품 지연으로 영업이익 484억(-43%). 초소형위성체계 SAR 군집위성 개발 입찰에서 2순위(10.30 개찰).</p></div>
+    <div class="issue" style="--cc:var(--c-ha)"><span class="co" style="--cc:var(--c-ha)"><i></i>한화에어로스페이스</span><p>2Q 분기 영업이익 첫 1조 돌파. 6월 대전사업장 폭발사고 후 사업부문 대표 교체. 폴란드 K9 3차 실행계약 협의 중.</p><span class="flag">중대재해 수사</span></div>
+    <div class="issue" style="--cc:var(--c-hs)"><span class="co" style="--cc:var(--c-hs)"><i></i>한화시스템</span><p>3Q 영업이익 991억(+60%). 초소형위성체계 SAR 군집위성 개발 1순위(3,685억, 10.30). 미 필리조선소 매각으로 중단영업 손실 반영, 수주잔고 8.9조로 재산정.</p></div>
+    <div class="issue" style="--cc:var(--c-lig)"><span class="co" style="--cc:var(--c-lig)"><i></i>LIG D&amp;A</span><p>방사청 입찰참가자격 제한 24개월 처분(10.20). 법원 임시 집행정지로 11월 20일까지 효력 중지, 정식 심리 11.5. 소형무인기 대응체계 양산 계약에 영향 우려.</p><span class="flag">입찰제한 처분</span></div>
+    <div class="issue" style="--cc:var(--c-ka)"><span class="co" style="--cc:var(--c-ka)"><i></i>대한항공</span><p>항공우주 ’25년 흑자전환, ’26 매출 1조 돌파 전망. MUAV 양산 1호기 출고(’26.4). 12월 아시아나항공 합병 예정.</p></div>
+    <div class="issue" style="--cc:var(--c-rotem)"><span class="co" style="--cc:var(--c-rotem)"><i></i>현대로템</span><p>3Q 영업이익 2,471억(-11%). 현대위아 특수사업부를 3,584억에 인수(’27.3 종결)해 K2 주포·K9 포신·함포를 내재화.</p></div>
+    <div class="issue" style="--cc:var(--c-kia)"><span class="co" style="--cc:var(--c-kia)"><i></i>기아</span><p>중형표준차(KMTV) 양산(’25.6~). 폴란드 PGZ·로소막 컨소시엄이 기아 플랫폼 군용차 1,266대 기본계약(’25.9). 특수차량 판매 +52.5%.</p></div>
+    <div class="issue" style="--cc:var(--c-wia)"><span class="co" style="--cc:var(--c-wia)"><i></i>현대위아</span><p>방산(특수사업부) 현대로템 양도 이사회 의결(10.19). 매각 대금은 열관리·로봇에 투입.</p><span class="flag">방산 사업 이관</span></div>
+    <div class="issue" style="--cc:var(--c-hhi)"><span class="co" style="--cc:var(--c-hhi)"><i></i>HD현대중공업</span><p>KDDX 상세설계·선도함과 태국 호위함 모두 한화오션에 밀림. 함정 수출은 설계 판매·현지 건조 방식으로 전환. 10월 인사로 이상균·조민수 공동대표.</p></div>
+    <div class="issue" style="--cc:var(--c-hwo)"><span class="co" style="--cc:var(--c-hwo)"><i></i>한화오션</span><p>KDDX 상세설계·선도함 우선협상(’26.7), 태국 호위함 우선협상(’26.9). 캐나다 잠수함(CPSP)은 TKMS에 밀려 차순위. 3Q 특수선 영업손실 706억.</p></div>
+  </div>
+</section>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div data-page="programs" style="gap:22px">
+<section>
+  <h2>무기체계 사업현황 <small>회사 · 분야 · 단계</small></h2>
+  <div class="pipeline" id="stageLegend"></div>
+  <div class="filters" id="filters">
+    <button class="chipbtn" type="button" id="co-all" data-co="all" aria-pressed="true">전체</button>
+  </div>
+  <div class="filters">
+    <label for="stageSel" class="note" style="margin:0">단계</label>
+    <select id="stageSel"><option value="all">전체 단계</option></select>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tbl-box">
+    <table class="pg">
+      <thead><tr><th>분야</th><th>사업명</th><th>사업내용</th><th>단계</th><th>출처</th></tr></thead>
+      <tbody id="pgBody"></tbody>
+    </table>
+  </div>
+  <p class="note">단계 구분: 사업계획(소요·선행연구) → 핵심기술 → 체계개발 → 사업자 선정 중 → 양산 / 수출 / 성능개량 → 후속지원. 체계개발이 끝났지만 양산 계약 전인 사업은 ‘체계개발’에 두고 비고에 표시했습니다.</p>
+</section>
+</div>
+
+<!-- ============ PAGE 3 : 사업별 ============ -->
+<div data-page="projects" style="gap:20px">
+<section>
+  <h2>사업별(기종) 진행현황 <small>PROGRAM TRACKER</small></h2>
+  <p class="note">무기체계 분류(항공·화력·방호·기동·함정·감시정찰/우주) 기준으로 묶었으며, 유도탄은 운용 플랫폼과 관계없이 화력으로 분류했습니다. 사업명은 방위사업청·국방과학연구소 공식 표기를 우선했고, 확인하지 못한 사업은 언론 표기를 따랐습니다. 사업규모는 총사업비와 계약금액을 구분해 적었습니다. 각 사업의 배지는 계약 여부(<b>진행 중</b> / <b>계약예정·사업화</b>)와 국내·수출을 나타냅니다.</p>
+  <div class="filters">
+    <label for="pjCls" class="note" style="margin:0">무기체계</label>
+    <select id="pjCls"><option value="all">전체 분류</option></select>
+    <div class="seg" id="pjMkt" role="group" aria-label="시장">
+      <button type="button" id="pm-all" data-v="all" aria-pressed="true">국내+수출</button>
+      <button type="button" id="pm-dom" data-v="dom" aria-pressed="false">국내</button>
+      <button type="button" id="pm-exp" data-v="exp" aria-pressed="false">수출</button>
+    </div>
+    <label for="pjCo" class="note" style="margin:0">참여업체</label>
+    <select id="pjCo"><option value="all">전체</option></select>
+    <span class="count" id="pjCount"></span>
+  </div>
+  <div class="sumrow" id="pjSum"></div>
+  <div class="tbl-box">
+    <table class="pj">
+      <thead><tr><th>사업명</th><th>참여업체</th><th>사업내용</th><th>사업규모</th><th>현황·일정</th><th>출처</th></tr></thead>
+      <tbody id="pjBody"></tbody>
+    </table>
+  </div>
+  <p class="note">‘주계약’은 방사청·ADD 또는 해외 발주처와 직접 계약한 업체, ‘협력’은 주요 구성품·하위체계 업체, ‘경쟁’은 계약 전 사업의 경쟁 구도 또는 이미 끝난 경쟁의 탈락 측입니다. ADD 주관 연구개발은 주관기관을 함께 표기했습니다.</p>
+</section>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div data-page="sources" style="gap:16px">
+<section>
+  <h2>출처 및 데이터 기준 <small>SOURCES</small></h2>
+  <div class="basis">
+    <p><b>작성 기준</b> 금융감독원 전자공시(DART)의 정기보고서·영업(잠정)실적 공시를 1차 기준으로 하고, 공시 원문 확인이 어려운 항목은 공시를 인용한 언론 보도·증권사 리포트·회사 IR 자료로 보완했습니다.</p>
+    <p><b>원문 확인</b> <a href="https://dart.fss.or.kr/" target="_blank" rel="noopener">DART 전자공시시스템</a> · <a href="https://www.koreaaero.com/" target="_blank" rel="noopener">KAI</a> · <a href="https://www.hanwhaaerospace.com/" target="_blank" rel="noopener">한화에어로스페이스</a> · <a href="https://www.hanwhasystems.com/" target="_blank" rel="noopener">한화시스템</a> · <a href="https://www.lignex1.com/" target="_blank" rel="noopener">LIG D&amp;A</a> · <a href="https://www.koreanair.com/" target="_blank" rel="noopener">대한항공</a></p>
+    <p><b>유의</b> 잠정실적은 감사 후 변동될 수 있으며, 한화에어로스페이스·KAI·LIG D&amp;A·기아·현대위아의 3Q 실적은 기준일 현재 미반영입니다. 분기 실적 합산은 증권정보 사이트의 공시 집계를 사용했습니다.</p>
+  </div>
+  <div id="srcWrap" style="display:grid;gap:12px"></div>
+</section>
+</div>
+
+</div>
+</main>
+
+<script>
+const CO = {
+  kai:{n:"한국항공우주산업(KAI)",s:"KAI",c:"var(--c-kai)"},
+  ha:{n:"한화에어로스페이스",s:"한화에어로",c:"var(--c-ha)"},
+  hs:{n:"한화시스템",s:"한화시스템",c:"var(--c-hs)"},
+  lig:{n:"LIG D&A",s:"LIG D&A",c:"var(--c-lig)"},
+  ka:{n:"대한항공",s:"대한항공",c:"var(--c-ka)"},
+  rotem:{n:"현대로템",s:"현대로템",c:"var(--c-rotem)"},
+  kia:{n:"기아",s:"기아",c:"var(--c-kia)"},
+  wia:{n:"현대위아",s:"현대위아",c:"var(--c-wia)"},
+  hhi:{n:"HD현대중공업",s:"HD현대중공업",c:"var(--c-hhi)"},
+  hwo:{n:"한화오션",s:"한화오션",c:"var(--c-hwo)"},
+  etc:{n:"사업별",s:"사업별",c:"var(--accent)"}
+};
+const ORDER = ["kai","ha","hs","lig","ka","rotem","kia","wia","hhi","hwo"];
+
+/* ---- 사업영역 매트릭스: 2=주력, 1=참여 ---- */
+const MX = {
+  kai:[2,2,1,0,0,0,0,0,1,1,2,1],
+  ha: [0,0,1,2,2,2,0,0,0,1,2,1],
+  hs: [0,0,1,0,1,1,2,2,2,2,2,0],
+  lig:[0,1,1,0,1,2,2,2,2,1,1,0],
+  ka: [1,2,2,0,0,0,0,0,1,0,0,2],
+  rotem:[0,0,0,0,2,0,0,0,0,0,0,1],
+  kia:[0,0,0,0,2,0,0,0,0,0,0,0],
+  wia:[0,0,0,0,2,0,0,0,0,1,0,0],
+  hhi:[0,0,0,0,0,0,0,0,0,2,0,1],
+  hwo:[0,0,1,0,0,0,0,0,0,2,0,2]
+};
+document.getElementById("mxBody").innerHTML = ORDER.map(k=>`<tr><th><span class="co" style="--cc:${CO[k].c}"><i></i>${CO[k].s}</span></th>${MX[k].map(v=>`<td>${v===2?`<i class="dot" style="--cc:${CO[k].c}" title="주력"></i>`:v===1?`<i class="ring" style="--cc:${CO[k].c}" title="참여"></i>`:`<span style="color:var(--line)">·</span>`}</td>`).join("")}</tr>`).join("");
+
+/* ---- 기업현황 ---- */
+const PROF={
+ kai:["1999.10","KOSPI 047810","김종출 (’26.3~)","경남 사천","한국수출입은행 26.41%","KF-21, FA-50, LAH·수리온, 위성","S05 S06"],
+ ha:["1977.8","KOSPI 012450","김동관(전략부문)<br>이부환(사업부문, ’26.7 내정)","본점 경남 창원<span class=\"sub\">본사사무소 서울 중구</span>","㈜한화 외 6인 35.78%","K9·천무·레드백, 항공엔진, 유도무기, 누리호","S19 S15 S46"],
+ hs:["2000","KOSPI 272210","양기원 (’26.7 내정)","서울 중구<span class=\"sub\">주력 생산 경북 구미</span>","한화에어로스페이스 외 2인 59.53%<span class=\"sub\">’25.1 기준</span>","레이다(MFR·AESA), 함정 전투체계, 위성","S15 S45"],
+ lig:["1976.7 창립<span class=\"sub\">’26.3 LIG넥스원 → LIG D&amp;A</span>","KOSPI 079550","신익현","경기 용인(본점)<span class=\"sub\">R&amp;D 성남 판교</span>","㈜LIG 37.7%","천궁-Ⅱ·L-SAM, 전자전, C4I","S25 S32"],
+ ka:["1969.3 민영 출범","KOSPI 003490","조원태 · 우기홍","서울 강서구<span class=\"sub\">항공우주사업본부 부산</span>","한진칼 외 29인 27.06%","무인기, 헬기 성능개량, 군용기 MRO","S44"],
+ rotem:["1999.7","KOSPI 064350","이용배","경기 의왕(본사)<span class=\"sub\">방산 생산 경남 창원</span>","현대자동차(최대주주)","K2 전차, 차륜형 장갑차·지휘소용 차량","S102"],
+ kia:["1944.12","KOSPI 000270","송호성 · 송민수 (’26.7~)","서울 서초구<span class=\"sub\">군용차 생산 광주</span>","현대자동차(최대주주)","중형표준차(KMTV), 소형전술차량(KLTV)","S92c S92"],
+ wia:["1976.2","KOSPI 011210","권오성","경남 창원","현대자동차(최대주주)","K2 120mm 주포·K9 155mm 포신·함포<span class=\"sub\">’27.3 현대로템 이관 예정</span>","S93d S93"],
+ hhi:["2019.6 분할 신설<span class=\"sub\">1973 창립</span>","KOSPI 329180","이상균(부회장) · 조민수(사장, ’26.10 내정)","울산 동구","HD한국조선해양(최대주주)","구축함·호위함, 잠수함 공동개발, 함정 수출","S95c"],
+ hwo:["2000.10 대우조선해양 출범<span class=\"sub\">’23.5 한화오션 사명변경</span>","KOSPI 042660","김희철","경남 거제","한화에어로스페이스 30.4%(최대주주)","잠수함(장보고-Ⅲ), 구축함(KDDX), 미 해군 MRO","S100c S101"]
+};
+document.getElementById("profBody").innerHTML=ORDER.map(k=>{const r=PROF[k];return `<tr><td><span class="co" style="--cc:${CO[k].c}"><i></i>${CO[k].n}</span></td><td>${r[0]}</td><td style="white-space:nowrap">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6].split(" ").map(x=>`<a class="sup" href="#sources" style="vertical-align:baseline">${x}</a>`).join(" ")}</td></tr>`}).join("");
+
+/* ---- 사업장 ---- */
+const CITIES = [
+  {id:"seoul",n:"서울",lat:37.57,lon:126.95,dx:-34,dy:-6,s:[["kai","서울사무소"],["ha","본사사무소(중구 청계천로 86)","S19"],["hs","본사(중구 한화빌딩)"],["ka","본사(강서구)"],["kia","본사(서초구 양재)"]]},
+  {id:"pangyo",n:"성남 판교",lat:37.40,lon:127.11,dx:10,dy:-4,s:[["ha","판교 R&D센터"],["hs","판교 R&D센터"],["lig","판교·2판교하우스(R&D)","S48"]]},
+  {id:"yongin",n:"용인",lat:37.27,lon:127.13,dx:10,dy:10,s:[["hs","용인 사업장(연구소)"],["lig","용인하우스(본점)","S48"]]},
+  {id:"uiwang",n:"의왕",lat:37.35,lon:126.97,dx:-34,dy:10,s:[["rotem","본사·연구소","S102"]]},
+  {id:"sejong",n:"세종",lat:36.50,lon:127.26,dx:-36,dy:-2,s:[["lig","세종 R&D 부지(취득·추진)","S31"]]},
+  {id:"daejeon",n:"대전",lat:36.36,lon:127.38,dx:-36,dy:14,s:[["ha","대전사업장(유성, 유도무기·추진기관)","S16"],["lig","대전하우스","S48"],["ka","항공기술연구원"]]},
+  {id:"boeun",n:"보은",lat:36.49,lon:127.73,dx:10,dy:4,s:[["ha","보은사업장(PGM 생산)","S16"]]},
+  {id:"gumi",n:"구미",lat:36.12,lon:128.36,dx:10,dy:-4,s:[["hs","구미사업장(’25.11 신사업장 준공, MFR·AESA)","S22"],["lig","구미하우스(유도무기 생산, 3하우스 신축)","S31"]]},
+  {id:"gimcheon",n:"김천",lat:36.12,lon:128.11,dx:-38,dy:12,s:[["lig","김천하우스(2하우스 신축)","S31"]]},
+  {id:"jinju",n:"진주",lat:35.18,lon:128.25,dx:-38,dy:-6,s:[["kai","회전익비행센터(이반성면)","S47"]]},
+  {id:"sacheon",n:"사천",lat:35.04,lon:128.08,dx:-38,dy:12,s:[["kai","본사·고정익/회전익 생산·우주센터","S10"]]},
+  {id:"changwon",n:"창원",lat:35.23,lon:128.68,dx:10,dy:-6,s:[["ha","창원사업장(본점, 항공엔진·지상방산)","S19"],["rotem","창원공장(K2 전차 등 방산 생산)"],["wia","본사·특수사업부(’27.3 현대로템 이관)","S93"]]},
+  {id:"busan",n:"부산",lat:35.16,lon:128.94,dx:10,dy:12,s:[["ka","부산테크센터(대저동, 무인기·MRO·신공장 2,000억 투자)","S42"]]},
+  {id:"ulsan",n:"울산",lat:35.51,lon:129.42,dx:10,dy:0,s:[["hhi","본사·조선소(특수선)","S95"]]},
+  {id:"geoje",n:"거제",lat:34.88,lon:128.70,dx:10,dy:12,s:[["hwo","본사·옥포조선소(특수선·잠수함)"]]},
+  {id:"gwangju",n:"광주",lat:35.16,lon:126.85,dx:-38,dy:0,s:[["kia","광주 오토랜드(군용차량 생산)","S92"]]},
+  {id:"yeosu",n:"여수",lat:34.76,lon:127.66,dx:10,dy:12,s:[["ha","여수사업장(추진제·화공품)","S16"]]},
+  {id:"jeju",n:"제주",lat:33.26,lon:126.50,dx:10,dy:-10,s:[["hs","제주우주센터(위성 생산)","S23"]]}
+];
+const LAND = [[126.10,37.75],[126.65,37.95],[127.10,38.30],[127.55,38.31],[128.10,38.33],[128.36,38.62],[128.62,38.20],[128.90,37.80],[129.12,37.45],[129.35,37.05],[129.43,36.70],[129.40,36.30],[129.57,36.05],[129.45,35.75],[129.40,35.45],[129.20,35.20],[129.05,35.06],[128.70,34.98],[128.40,34.84],[128.05,34.82],[127.75,34.70],[127.42,34.55],[126.90,34.45],[126.55,34.30],[126.30,34.62],[126.35,34.95],[126.45,35.35],[126.55,35.75],[126.68,36.00],[126.50,36.40],[126.15,36.75],[126.55,37.00],[126.78,37.22],[126.58,37.45],[126.30,37.62]];
+const px = (lon,lat)=>[ (lon-125.85)*100, (38.85-lat)*123 ];
+(function drawMap(){
+  const svg = document.getElementById("map");
+  const pts = LAND.map(p=>px(p[0],p[1]).map(v=>v.toFixed(1)).join(",")).join(" ");
+  const [jx,jy] = px(126.55,33.38);
+  let h = `<polygon class="land" points="${pts}"/><ellipse class="land" cx="${jx.toFixed(1)}" cy="${jy.toFixed(1)}" rx="32" ry="21"/>`;
+  CITIES.forEach(c=>{
+    const [x,y] = px(c.lon,c.lat);
+    const cos = [...new Set(c.s.map(s=>s[0]))];
+    const w = cos.length*9;
+    let dots = cos.map((k,i)=>`<circle cx="${(x - w/2 + 4.5 + i*9).toFixed(1)}" cy="${y.toFixed(1)}" r="4.2" style="fill:${CO[k].c};stroke:var(--paper);stroke-width:1.2"/>`).join("");
+    const anchor = c.dx<0 ? "end":"start";
+    const tx = c.dx<0 ? x - w/2 - 4 : x + w/2 + 4;
+    h += `<g class="city" data-city="${c.id}" tabindex="0" role="button" aria-label="${c.n}">${dots}<text x="${tx.toFixed(1)}" y="${(y+4+ (c.dy>8?6:c.dy<-8?-4:0)).toFixed(1)}" text-anchor="${anchor}">${c.n}</text><circle class="hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="14"/></g>`;
+  });
+  svg.innerHTML = h;
+  const list = document.getElementById("siteList");
+  list.innerHTML = CITIES.map(c=>`<div class="site-row" id="site-${c.id}"><h4>${c.n}</h4><ul>${c.s.map(s=>`<li style="--cc:${CO[s[0]].c}"><i></i><span><b>${CO[s[0]].s}</b> ${s[1]}${s[2]?`<a class="sup" href="#sources">${s[2]}</a>`:""}</span></li>`).join("")}</ul></div>`).join("");
+  function pick(id){
+    document.querySelectorAll(".city").forEach(g=>g.classList.toggle("on",g.dataset.city===id));
+    document.querySelectorAll(".site-row").forEach(r=>r.classList.toggle("on",r.id==="site-"+id));
+    const r=document.getElementById("site-"+id); if(r) r.scrollIntoView({block:"nearest",behavior:"smooth"});
+  }
+  svg.querySelectorAll(".city").forEach(g=>{
+    g.addEventListener("click",()=>pick(g.dataset.city));
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(g.dataset.city)}});
+  });
+})();
+
+/* ---- 무기체계 사업 ---- */
+const STAGES = {
+  plan:{l:"사업계획",c:"var(--st-plan)"}, tech:{l:"핵심기술",c:"var(--st-tech)"}, dev:{l:"체계개발",c:"var(--st-dev)"},
+  bid:{l:"사업자 선정 중",c:"var(--st-bid)"}, prod:{l:"양산",c:"var(--st-prod)"}, export:{l:"수출",c:"var(--st-export)"},
+  up:{l:"성능개량",c:"var(--st-up)"}, sup:{l:"후속지원",c:"var(--st-sup)"}, done:{l:"종결·결정",c:"var(--st-done)"}
+};
+const P = [
+ // KAI
+ ["kai","항공(고정익)","KF-21 보라매 Block-I","4.5세대 한국형 전투기. ’26.5 전투용 적합, ’26.7 체계개발 종결. 최초양산 1호기 ’26.9.22 공군 인도, ’27 하반기 작전 투입.","prod","1차 40대 ’28말 전력화","S07"],
+ ["kai","항공(고정익)","KF-21 Block-II","공대지·공대함 무장을 통합한 다목적형. 후속 80대를 ’32년까지 도입할 계획.","plan","Block-I 이후 개발 연계","S07"],
+ ["kai","항공(고정익)","FA-50 계열 수출","폴란드 FA-50PL·말레이시아 FA-50M 생산 안정화, 필리핀 FA-50PH 추가 수출 계약(’25).","export","","S11"],
+ ["kai","항공(고정익)","FA-50PH 성능개량·KT-1 수명연장","필리핀 FA-50PH 성능개량, 인도네시아 KT-1 기체 수명연장 등 운용 전주기 후속지원.","sup","","S01"],
+ ["kai","회전익","소형무장헬기 LAH(미르온)","육군 500MD·AH-1S 대체 공격헬기. 양산 납품 중이며 ’26.2Q 납품 지연으로 실적 감소.","prod","’26 매출 성장 핵심","S09"],
+ ["kai","회전익","수리온 계열(의무후송·산림청 헬기)","의무후송헬기 2차 양산, 산림청 헬기 확대 계약(’25).","prod","","S01"],
+ ["kai","회전익","상륙공격헬기 MAH","마린온 기반 해병대 공격헬기. ’22.10 착수, ’26.7 전투용 적합·’26.8 감항인증, ’26.10.28 체계개발 종결.","dev","개발완료 → 24대 양산 전환","S08"],
+ ["kai","회전익","소해헬기 MCH","기뢰 탐지·제거 임무장비(ALMDS 등) 탑재 해군 헬기. ’26.11 개발 완료 목표.","dev","","S55"],
+ ["kai","회전익","차세대 고속중형기동헬기","UH-60 장기 대체를 위한 고속 중형기동헬기. 군이 성능개량 후 대체사업으로 추진 계획.","plan","소요·선행연구 단계","S57"],
+ ["kai","무인·MUM-T","유무인복합체계(MUM-T) 플랫폼","유인 헬기와 무인기 합동작전 플랫폼 기술. ’28년 말 완료 목표.","tech","","S55"],
+ ["kai","우주","초소형위성체계 SAR 군집위성 개발","ADD 발주(기초금액 5,672억). 10.30 개찰 결과 KAI 투찰가 4,603억으로 2순위, 한화시스템이 1순위.","bid","2순위 · 사업 미확보 전망","S73"],
+ ["kai","우주","차세대중형위성 3호","총괄주관 개발. ’26.6 초기운영 완료 후 우주항공청 이관.","done","","S56"],
+ // HA
+ ["ha","지상(화력)","K9 자주포 수출","폴란드 1차 212문 완납, 2차 진행·3차 실행계약 협의. 노르웨이 24문(’25.9), 호주·이집트·루마니아 등.","export","’26 인도 30문 이상","S14"],
+ ["ha","지상(화력)","K9A2(K9 2차 성능개량 Block-I)","송탄·장전 자동화로 운용 3명. 체계개발 ’23.11~’26.12, 양산 ’27 목표.","dev","폴란드 현지생산 논의","S17"],
+ ["ha","지상(화력)","천무 다연장로켓","폴란드 3차 실행계약 약 5.6조, 노르웨이 약 1.3조, 에스토니아 약 4,400억.","export","’26 인도 40대 이상","S14"],
+ ["ha","지상(기동)","레드백 보병전투장갑차","호주 LAND 400 Ph.3, 129대. 질롱 H-ACE 증축 완료 후 현지 생산 시작(’26.3).","export","","S18"],
+ ["ha","지상(방공·대전차)","천호(차륜형 대공포)·천검 등","차륜형 대공포 천호·대전차유도무기 천검 등 국내 양산 물량 증가.","prod","","S13"],
+ ["ha","유도·대공","L-SAM 발사대·대탄도탄 유도탄","L-SAM 대탄도탄 유도탄(ABM)·발사대 양산 약 7,000억.","prod","","S14"],
+ ["ha","유도·대공","천궁 2차 양산(국내)","약 2,200억 규모 국내 양산 계약.","prod","","S14"],
+ ["ha","유도·대공","M-SAM Block-III 발사대","천궁-III 체계개발에서 발사대 개발 담당. ’30년까지.","dev","","S24"],
+ ["ha","유도(항공무장)","KF-21 장거리 공대공 유도탄","미티어 대체. ADD 주관 체계개발 7,535억(’26.12~’33.11). 기체구조·추진기관·탄두 분야 1순위.","bid","12월 확정 예정","S34"],
+ ["ha","항공엔진","KF-21 F414 엔진 국내 생산","KF-21 최초 양산 엔진 공급, 항공엔진 핵심소재 국산화 착수.","prod","","S19"],
+ ["ha","항공엔진","무인기용 항공엔진(민군겸용)","우주항공청과 국내 첫 민군겸용 무인기 엔진 개발 착수.","dev","","S54"],
+ ["ha","우주","누리호 고도화","체계종합. 5차 발사(’26.10)로 초소형 군집위성 등 탑재.","dev","","S52"],
+ // HS
+ ["hs","감시정찰(레이다)","천궁-II 다기능레이다(MFR)","UAE·사우디·이라크 수출. 구미사업장에서 조립·시험.","export","","S22"],
+ ["hs","감시정찰(레이다)","KF-21 AESA 레이다","KF-21 탑재 능동위상배열 레이다. 최초양산 계약 이후 양산 공급.","prod","","S22"],
+ ["hs","감시정찰(레이다)","M-SAM Block-III 다기능레이다","천궁-III 체계개발에서 MFR 개발 담당. ’30년까지.","dev","","S24"],
+ ["hs","지휘통제","AI 기반 통합방공체계","레이다·전자광학센서와 대공포·유도무기를 연결해 복합 위협 대응 지원.","dev","","S22"],
+ ["hs","함정","통합함교체계(IBS)·함정 전투체계","콕핏형 통합함교체계 시연, 함정 전투체계 국내·수출 공급.","prod","","S22"],
+ ["hs","해양무인","무인수상정 ‘해령’","다목적 정찰용 무인수상정.","dev","","S21"],
+ ["hs","우주","초소형위성체계 SAR 군집위성 개발","ADD 발주(기초금액 5,672억). 10.30 개찰에서 3,684.7억(투찰률 65.1%)으로 1순위. 개발 기간 ~’31.11.","bid","1순위 · 계약 체결 예정","S73"],
+ ["hs","우주","자체 SAR 위성(초저궤도)","0.25m급 SAR 위성 발사 예정, ’31년까지 초저궤도 SAR 64기 운용 계획.","dev","제주우주센터 생산","S10"],
+ // LIG
+ ["lig","유도·대공","천궁-II(M-SAM Block-II) 수출","UAE 10개 포대 2.6조, 사우디 10개 포대 4.3조, 이라크 8개 포대 3.7조. 카타르·쿠웨이트 협상.","export","","S30"],
+ ["lig","유도·대공","L-SAM 양산","체계종합·대항공기 유도탄 담당. 양산계약 1,639억.","prod","","S33"],
+ ["lig","유도·대공","M-SAM Block-III(천궁-III)","체계종합·유도탄·작전/교전통제소. 시제계약 2,166억(’25.12~’30).","dev","","S24"],
+ ["lig","유도·대공","L-SAM-II","고고도 요격 유도탄 체계를 ADD 주관으로 개발, ’31년까지.","dev","","S28"],
+ ["lig","유도·대공","장사정포 요격체계(LAMD)","다수 장사정 포탄 탐지·추적·요격 체계.","dev","","S28"],
+ ["lig","유도(함정)","함대공유도탄-II","체계개발 ’24.3~’30.12.","dev","","S30"],
+ ["lig","유도(함정)","해궁 말레이시아 수출","약 1,404억(’26.4).","export","","S30"],
+ ["lig","유도","비궁 미국 진출","2.75인치 유도로켓. 미국 해외비교시험(FCT) 6발 명중.","bid","수출 추진","S35"],
+ ["lig","유도(항공무장)","KF-21 장거리 공대공 유도탄","체계종합·탐색기 분야 1순위. 입찰참가 제한 처분으로 참여 불투명.","bid","제재 영향","S34"],
+ ["lig","전자전","전자전기","대한항공과 컨소시엄, 약 1.6조 규모.","dev","","S37"],
+ ["lig","항공(성능개량)","UH/HH-60 성능개량","대한항공 컨소시엄 참여(항전·임무장비).","up","","S41"],
+ ["lig","대드론","소형무인기 대응체계","체계개발(244억) 완료, 양산 약 1,223억 추진. 방사청이 방산업체 지정취소 검토 요청.","prod","양산 계약 차질 우려","S29"],
+ ["lig","우주","천리안위성 5호","시스템·본체 개발 우선협상대상자. 정지궤도 위성 첫 민간 주관.","dev","","S35"],
+ // KA
+ ["ka","무인기","중고도 정찰용 무인항공기(MUAV)","LIG D&A·한화시스템과 공동 개발한 전략급 무인기. 양산 1호기 출고(’26.4).","prod","","S39"],
+ ["ka","무인기","저피탐 무인편대기","ADD와 개발, 1호기 출고(’25.2). 유무인 복합 편대 운용.","tech","","S43"],
+ ["ka","회전익(성능개량)","UH/HH-60 성능개량","특수작전헬기 조종실 디지털화·생존장비 등. 8,302억(’25.8~’31.8), ’29년부터 인도.","up","","S41"],
+ ["ka","특수항공기","항공통제기 2차","대한항공-L3Harris 컨소시엄 최종 사업자(’25.10), 조기 착수.","dev","","S37"],
+ ["ka","특수항공기","전자전기","대한항공-LIG 컨소시엄 우선협상대상자(’25.12).","dev","","S37"],
+ ["ka","MRO","군용기 창정비(MROU)","미군·한국군 군용기 정비. 수주잔고 1조 8,741억(’26.1Q).","sup","","S40"],
+ // 현대로템
+ ["rotem","지상(기동)","K2 전차 폴란드 2차 실행계약","180대(국내 생산 117대, 폴란드 PGZ 현지 생산 K2PL 63대). 금액 비공개, 업계 추정 약 8.7~8.8조.","export","’25 계약","S90 S91"],
+ ["rotem","지상(기동)","차륜형 지휘소용 차량","국내 양산 물량 2025 실적 반영.","prod","","S90"],
+ ["rotem","지상(부품)","현대위아 특수사업부 인수","K2 120mm 주포·K9 155mm 포신·함포 사업 인수(3,584억). 한화에어로 K9 포신 공급사가 됨.","plan","’27.3.31 종결 예정","S93"],
+ ["rotem","유도(항공무장)","KF-21 장거리 공대공 유도탄","추진기관 분야 경쟁 참여, 한화에어로스페이스가 1순위.","bid","추진기관 탈락","S72"],
+ // 기아
+ ["kia","지상(기동)","차세대 중형표준차량(KMTV)","2.5톤·5톤 군용트럭 대체. ’19 사업계약, ’25.6 양산·인도 시작.","prod","48년 만의 세대교체","S92"],
+ ["kia","지상(기동)","소형전술차량(KLTV) 폴란드","폴란드 로소막과 협력, 현지명 ‘레그완’. PGZ·로소막 컨소시엄이 기아 플랫폼 군용차 1,266대 기본계약(’25.9).","export","이행계약 ’35년까지","S92"],
+ ["kia","지상(기동)","타스만 기반 군용 지휘차","유로사토리 2026 공개.","plan","","S92"],
+ // 현대위아
+ ["wia","지상(화력)","K2 120mm 주포 · K9 155mm 포신","전차 주포·자주포 포신 양산 공급.","prod","’27.3 현대로템 이관","S93"],
+ ["wia","함정","함포","해군 함포 생산.","prod","’27.3 현대로템 이관","S93"],
+ // HD현대중공업
+ ["hhi","함정","KDDX 상세설계 및 선도함 건조","기본설계 수행. 상세설계·선도함 건조 입찰에서 한화오션에 0.5점 차로 밀림.","done","기본설계 완료 · 후속 미확보","S94 S94b"],
+ ["hhi","함정(수출)","페루 함정 4척","3,400톤급 호위함·2,200톤급 해경함·상륙지원함 2척, 4억 6,290만 달러(’24.4). 현지 SIMA 공동건조, 상륙지원함 1번함 진수(’26.8).","export","","S95"],
+ ["hhi","함정(수출)","페루 1,500톤급 잠수함","HDS-1500 기반 공동개발 계약(’25.12). 기본설계 막바지, 건조 계약 협의.","dev","","S95"],
+ ["hhi","함정(수출)","필리핀 함정","수출·특수선 20척 중 12척이 필리핀. 수빅 HD현대필리핀조선소 첫 현지 건조선 진수.","export","","S95"],
+ ["hhi","함정(수출)","필리핀 잠수함 2척","필리핀 해군 검토 단계, 한화오션 등과 경쟁.","plan","","S95"],
+ ["hhi","함정","미 해군 차세대 군수지원함","헌팅턴잉걸스(HII)와 공동건조 MOU(’25.10). 미 국방부가 구축함·군수지원함 자료 요청.","plan","","S95"],
+ // 한화오션
+ ["hwo","함정","KDDX 상세설계 및 선도함 건조","6,000톤급 구축함 6척, 총사업비 7.8조. 개념설계 수행, 상세설계·선도함 우선협상대상자(’26.7.1).","bid","계약 협상 중","S94 S94b"],
+ ["hwo","함정","장보고-Ⅲ Batch-Ⅱ 잠수함","Batch-Ⅱ 3번함까지 한화오션 건조.","prod","","S96"],
+ ["hwo","함정(수출)","태국 차기 호위함","1척 및 통합군수지원, 6,833억. 우선협상대상자(’26.9.8).","bid","본계약 추진","S98"],
+ ["hwo","함정(수출)","캐나다 잠수함(CPSP)","3,000톤급 최대 12척, 최대 60조(MRO 포함). TKMS 우선협상, 한화오션 차순위.","done","탈락(차순위)","S99"],
+ ["hwo","MRO","미 해군 함정 MRO","미 해군 군수지원함 MRO 수주·수행(’25).","sup","","S97"]
+];
+
+const fWrap=document.getElementById("filters"), sel=document.getElementById("stageSel");
+ORDER.forEach(k=>{const b=document.createElement("button");b.type="button";b.className="chipbtn";b.id="co-"+k;b.dataset.co=k;b.setAttribute("aria-pressed","false");b.style.setProperty("--cc",CO[k].c);b.innerHTML=`<i></i>${CO[k].s}`;fWrap.appendChild(b)});
+Object.entries(STAGES).forEach(([k,v])=>{const o=document.createElement("option");o.value=k;o.textContent=v.l;sel.appendChild(o)});
+document.getElementById("stageLegend").innerHTML = Object.entries(STAGES).map(([k,v])=>`<span class="stage" style="--sc:${v.c}">${v.l}</span>`).join("");
+let fCo="all";
+function renderP(){
+  const st=sel.value;
+  const rows=P.filter(p=>(fCo==="all"||p[0]===fCo)&&(st==="all"||p[4]===st));
+  let h="",last="";
+  rows.forEach(p=>{
+    if(p[0]!==last){last=p[0];h+=`<tr class="grp" style="--cc:${CO[p[0]].c}"><td colspan="5"><span class="co" style="--cc:${CO[p[0]].c}"><i></i>${CO[p[0]].n}</span></td></tr>`}
+    const s=STAGES[p[4]];
+    h+=`<tr><td class="area">${p[1]}</td><td class="nm">${p[2]}</td><td class="ds">${p[3]}</td><td class="st"><span class="stage" style="--sc:${s.c}">${s.l}</span>${p[5]?`<span class="sub">${p[5]}</span>`:""}</td><td><a class="sup" href="#sources" style="vertical-align:baseline">${p[6]}</a></td></tr>`;
+  });
+  document.getElementById("pgBody").innerHTML=h||`<tr><td colspan="5" class="note">조건에 맞는 사업이 없습니다.</td></tr>`;
+  document.getElementById("count").textContent=rows.length+"건";
+}
+fWrap.addEventListener("click",e=>{const b=e.target.closest(".chipbtn");if(!b)return;fCo=b.dataset.co;fWrap.querySelectorAll(".chipbtn").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));renderP()});
+sel.addEventListener("change",renderP);
+renderP();
+
+/* ---- 출처 ---- */
+const SRC = [
+ ["kai","한국항공우주산업(KAI)",[
+  ["S01","https://www.kukinews.com/article/view/kuk202602050238","2025 연결 잠정실적(매출·영업이익·순이익), 수주 6조 3,946억, ’25말 수주잔고 27조 3,437억, 주요 수주(의무후송 2차·산림청·FA-50PH)"],
+  ["S02","https://www.ddaily.co.kr/page/view/2026050716304648879","’26.1Q 매출 1조 927억·영업이익 671억"],
+  ["S03","https://www.tokenpost.kr/news/economy/382724","’26.2Q 영업이익 484억(-43.1%)"],
+  ["S04","https://www.smarttoday.co.kr/ko-kr/articles/113075","’26 상반기 매출 +48%·영업이익 -12.5%, 차입금·사채 2조 9,801억"],
+  ["S05","https://www.etoday.co.kr/news/view/2567152","김종출 제9대 대표이사 취임(’26.3)"],
+  ["S06","https://stock.pstatic.net/stock-research/company/57/20260508_company_395202000.pdf","하나증권 1Q26 리뷰: 주요주주 한국수출입은행 26.41%"],
+  ["S07","https://www.sidae.com/article/2026092218510428615","KF-21 체계개발 종료·양산 1호기 공군 인도(’26.9.22)"],
+  ["S07b","https://v.daum.net/v/9klMvbYCmE","KF-21 1차 40대 전력화 일정, Block-II 80대 ’32년 도입 계획"],
+  ["S08","https://dazabi.com/insurance_magazine/article.php?id=46390","상륙공격헬기 체계개발 종결(’26.10.28), 전투용 적합·감항인증"],
+  ["S09","https://dealsite.co.kr/articles/166231","’26.2Q LAH 납품 차질로 영업이익 감소"],
+  ["S10","https://dealsite.co.kr/articles/170484","초소형위성체계 SAR 군집위성 개발 입찰(5,672억, 10.28 개찰), 사천·제주 우주센터"],
+  ["S11","https://www.kukinews.com/article/view/kuk202602050230","’26 가이던스(매출 5조 7,306억·수주 10조 4,383억), FA-50PL·FA-50M·LAH·KF-21"],
+  ["S47","https://www.kukinews.com/article/view/kuk202501160119","진주 회전익비행센터, MAH 개발 일정"],
+  ["S55","https://www.kukinews.com/article/view/kuk202604010165","MAH·소해헬기(MCH)·MUM-T 플랫폼 개발 일정"],
+  ["S56","https://www.metroseoul.co.kr/article/20260607500190","차세대중형위성 3호 초기운영 완료·이관"],
+  ["S57","https://newstomato.com/ReadNews.aspx?no=1256888","UH-60 장기 대체 ‘차세대 고속 중형기동헬기’ 추진 계획"]
+ ]],
+ ["ha","한화에어로스페이스",[
+  ["S12","https://news.dealsitetv.com/articles/165327","2025 연결 실적 공시(매출 26조 6,078억·영업이익 3조 345억·순이익 2조 1,417억)"],
+  ["S12b","https://www.butler.works/ko/companies/00126566","DART 재무 기반 확정치(매출 26조 7,029억·영업이익 3조 893억)"],
+  ["S13","https://biz.sbs.co.kr/amp/article/20000325915","’26 상반기 누적 매출 15조 439억·영업이익 2조 44억"],
+  ["S13b","https://www.smarttoday.co.kr/ko-kr/articles/109987","’26.2Q 실적, 지상방산 수주잔고 38조 3,000억"],
+  ["S14","https://www.finance-scope.com/article/view/scp202603160027","’25말 지상방산 수주잔고 37.2조, K9·천무·L-SAM·천궁 계약 내역"],
+  ["S15","https://m.dailian.co.kr/news/view/1672824","대표 교체: 한화에어로 사업부문 이부환, 한화시스템 양기원 내정"],
+  ["S16","https://news.jkn.co.kr/post/923103","대전사업장(유성구 외삼동) 사고 및 위치"],
+  ["S16b","https://comento.kr/job-questions/한화에어로스페이스/제조/한화에어로스페이스_사업장 추천-635242","PGM 생산 사업장(대전·보은·여수) — 채용공고 인용 2차 자료"],
+  ["S17","https://maily.so/sheldon/posts/4c4b7b70","K9A2 Block-I 체계개발 기간(’23.11~’26.12)"],
+  ["S18","https://www.smarttoday.co.kr/ko-kr/articles/104949","호주 H-ACE 증축, 레드백 생산 시작"],
+  ["S19","https://www.hanwhaaerospace.com/assets/content/esg/sustainBusiness/download/kr/HanwhaAerospace_SustainabilityReport_2026.pdf","지속가능경영보고서 2026: 1977 출범, 본사사무소 주소, KF-21 양산 엔진 공급"],
+  ["S46","https://stock.pstatic.net/stock-research/company/57/20260210_company_263873000.pdf","하나증권 4Q25 리뷰: 주요주주 한화 외 6인 35.78%"],
+  ["S50","https://stock.pstatic.net/stock-research/company/57/20260416_company_340519000.pdf","노르웨이 천무 1.3조, 폴란드 천무 유도탄 후속 계약"],
+  ["S52","https://dealsite.co.kr/articles/170768","누리호 5차 발사(’26.10) 및 초소형 SAR 사업 구조"],
+  ["S54","https://ceoscoredaily.com/machine?page=7","무인기용 항공엔진(민군겸용) 개발 착수 기사 목록"]
+ ]],
+ ["hs","한화시스템",[
+  ["S20","https://dealsite.co.kr/articles/156551","2025 연결 매출 3조 6,641억, 순이익 2,158억"],
+  ["S20b","https://www.fnnews.com/news/202602061443206635","2025 영업이익 약 1,236억, 필리조선소 손실"],
+  ["S21","https://dealsite.co.kr/articles/171478","’26.3Q 매출 8,316억·영업이익 991억·순이익 38억, 해령"],
+  ["S21b","https://www.koreancenter.or.kr/news/articleView.html?idxno=1430448","’26.3Q 말 수주잔고 8조 8,653억(방산 8조 3,956억·ICT 4,697억)"],
+  ["S22","https://kbmaeil.com/article/20260923500197","구미사업장: 천궁-II MFR 수출, KF-21 AESA, AI 통합방공체계"],
+  ["S22b","https://www.hanwhasystems.com/kr/prcenter/newsView.do?bbidx=732","구미 신사업장 준공(’25.11, 2,800억)"],
+  ["S23","https://www.smarttoday.co.kr/ko-kr/articles/100628","제주우주센터"],
+  ["S45","https://stock.pstatic.net/stock-research/company/57/20250116_company_969370000.pdf","주요주주 한화에어로스페이스 외 2인 59.53%(’25.1)"],
+  ["S53","https://news.mtn.co.kr/article/2026102717293616866","필리조선소 매각, 3Q 실적"],
+  ["S58","https://alphadistill.com/report/126?ch=open","’25말 수주잔고 12.2조"]
+ ]],
+ ["lig","LIG D&A",[
+  ["S24","https://maily.so/sheldon/posts/w6ov2777rk5","M-SAM Block-III 분담(LIG 체계종합·유도탄, 한화시스템 MFR, 한화에어로 발사대)"],
+  ["S24b","https://www.sidae.com/article/2025121116111343982","천궁-III 체계개발 시제계약 2,166억"],
+  ["S25","https://www.heraldk.com/article/2026033022461241609","사명 변경(’26.3.31 주총)"],
+  ["S26","https://news.bizwatch.co.kr/article/industry/2026/02/13/0029","2025 매출 4조 3,069억·영업이익 3,229억(공시)"],
+  ["S26b","https://www.fnnews.com/news/202601301348555217","2025 잠정 순이익 2,116억"],
+  ["S27","https://dealsite.co.kr/articles/161402","’26.1Q 매출 1조 1,679억·영업이익 1,711억"],
+  ["S27b","https://www.etoday.co.kr/news/view/2611814","’26.2Q 매출 1조 1,101억·영업이익 1,057억, 수주잔고 24.6조"],
+  ["S28","https://view.asiae.co.kr/article/2026071308392802972","’25말 수주잔고 26조 2,526억, L-SAM·LAMD 등 요격체계"],
+  ["S28b","https://dealsite.co.kr/articles/141445","L-SAM-II 개발"],
+  ["S29","https://newstomato.com/ReadNews.aspx?no=1317451","방사청 입찰참가 제한 2년(’26.10.20)"],
+  ["S29b","https://biz.sbs.co.kr/amp/article/20000342287","임시 집행정지 결정, 정식 심리 일정"],
+  ["S29c","https://news.mtn.co.kr/article/2026102616594460568","소형무인기 대응체계 양산·방산업체 지정취소 검토"],
+  ["S30","https://bbn.kiwoom.com/rfSN3770","키움증권: 천궁-II 수출 내역, 함대공유도탄-II, 해궁 말레이시아"],
+  ["S31","https://www.ceoscoredaily.com/page/view/2026090314113373218","우선주 유상증자, 구미 3하우스·김천 2하우스 신축"],
+  ["S31b","https://www.smarttoday.co.kr/ko-kr/articles/112506","증자 조건 정정(5,320억, 11.13 납입)"],
+  ["S32","https://dealsite.co.kr/articles/163820","㈜LIG의 LIG D&A 지분 37.7%"],
+  ["S33","https://www.smarttoday.co.kr/ko-kr/articles/97568","L-SAM 양산계약 1,639억"],
+  ["S34","https://dealsite.co.kr/articles/171063","KF-21 장거리 공대공 유도탄 평가 결과·사업기간"],
+  ["S35","https://biz.newdaily.co.kr/site/data/html/2026/07/01/2026070100124.html","50주년: 전자전기·항공통제기·천리안 5호·비궁 FCT·유럽사무소"],
+  ["S48","https://magazine.hankyung.com/business/article/202501173120b","구미·용인·판교·대전 사업장, 2판교하우스"],
+  ["S51","https://v.daum.net/v/1vUsqdd8pO","’26.1Q 부채비율 440%"]
+ ]],
+ ["rotem","현대로템",[
+  ["S90","https://www.etoday.co.kr/news/view/2551429","2025 매출 5조 8,390억·영업이익 1조 56억, ’25말 수주잔고 29조 7,735억, K2 폴란드 2차 8.7조"],
+  ["S90b","https://biz.sbs.co.kr/amp/article/20000340861","’26.3Q 실적, 누적 4조 6,842억·7,037억, 수주잔고 29조 1,420억(AD&RH 9조 5,228억)"],
+  ["S90c","https://etfshopping.com/stock/064350/earnings","분기별 잠정실적(순이익 합산 근거)"],
+  ["S91","https://www.segye.com/newsView/20250703503425","K2 폴란드 2차 180대(국내 117·K2PL 63, PGZ)"],
+  ["S102","https://mobile.newsis.com/view/NISX20260612_0003667404","이용배 대표"]
+ ]],
+ ["kia","기아",[
+  ["S92","https://news.bizwatch.co.kr/article/industry/2026/10/16/0034","KMTV 양산, KLTV 폴란드, 1,266대 기본계약, 특수차량 판매, 광주사업장"],
+  ["S92b","https://etfshopping.com/stock/000270/earnings","분기별 잠정실적"],
+  ["S92c","https://www.mydaily.co.kr/page/view/2026070816372659938","송호성·송민수 각자대표 체제(’26.7)"]
+ ]],
+ ["wia","현대위아",[
+  ["S93","https://ceoscoredaily.com/page/view/2026102015582946849","특수사업부 현대로템 인수(3,584억, ’27.3.31 종결), 제품·매출"],
+  ["S93b","https://news.mtn.co.kr/article/2026101913443091058","방산 매각 이사회 의결(10.19), 매각 배경"],
+  ["S93c","https://etfshopping.com/stock/011210/earnings","분기별 잠정실적"],
+  ["S93d","https://www.heraldk.com/article/2026032517591239074","권오성 대표"]
+ ]],
+ ["hhi","HD현대중공업",[
+  ["S94","https://news.mtn.co.kr/news-detail/2026070208575050161","KDDX 상세설계·선도함 우선협상(한화오션), 6척 7.8조, 설계 분담"],
+  ["S94b","https://news.mtn.co.kr/news-detail/2026061117441261526","KDDX 평가 0.5점 차"],
+  ["S95","https://ceoscoredaily.com/page/view/2026100611202921526","함정 수출 방식 전환, 페루·필리핀·미국, ’26.2Q 함정 실적"],
+  ["S95b","https://etfshopping.com/stock/329180/earnings","분기별 잠정실적"],
+  ["S95c","https://biz.sbs.co.kr/amp/article/20000338700","’26.10 사장단 인사(이상균·조민수)"]
+ ]],
+ ["hwo","한화오션",[
+  ["S96","https://thecommoditiesnews.com/news/articleView.html?idxno=6957","장보고-Ⅲ Batch-Ⅱ 3번함 한화오션 건조"],
+  ["S97","https://www.koreabizreview.com/articles/kbr-legacy-7311","미 해군 군수지원함 MRO 수주·수행"],
+  ["S98","https://sateconomy.co.kr/news/view/1065587028348196","태국 차기 호위함 우선협상(6,833억)"],
+  ["S99","https://www.smarttoday.co.kr/ko-kr/articles/109266","캐나다 CPSP TKMS 선정, 한화오션 차순위"],
+  ["S100","https://zdnet.co.kr/view?no=20261027145833","’26.3Q 실적, 특수선 매출·손실"],
+  ["S100b","https://etfshopping.com/stock/042660/earnings","분기별 잠정실적"],
+  ["S100c","https://www.huffingtonpost.kr/article/261380","김희철 대표, 수주잔고 약 48조"],
+  ["S101","https://bbn.kiwoom.com/rfCR11734","키움증권: 한화에어로스페이스의 한화오션 지분율 30.4%"]
+ ]],
+ ["etc","사업별 진행현황(P3) 추가 자료",[
+  ["S60","https://www.etoday.co.kr/news/view/2482432","KF-21 추가 20대 양산 계약(KAI 2조 3,969억·한화에어로 엔진 6,232억, ’25.6.26)"],
+  ["S61","https://www.etoday.co.kr/news/view/2373403","KF-21 최초양산 1차 계약, 한화시스템 AESA 레이다 공급"],
+  ["S62","https://www.newdaily.co.kr/site/data/html/2024/01/25/2024012500304.html","MUAV 양산 착수(계약 4,717억, 양산계획 9,800억, 3개 시제업체)"],
+  ["S63","https://www.heraldk.com/article/2025101916353928660","항공통제기 2차: L3Harris·대한항공·IAI ELTA, Global 6500 4대, ’32년 인도"],
+  ["S64","https://www.bizhankook.com/bk/article/29063","항공통제기 2차 경쟁 구도(Boeing·L3Harris·Saab), 총 약 3조"],
+  ["S65","https://www.digitaltoday.co.kr/aigongsi/amp/4983/hnjin-kal-subsidiary-l3harris-contract","대한항공-L3Harris 6,318억 계약 공시"],
+  ["S66","https://www.sidae.com/article/2025122415193825482","한국형 전자전기(Block-I) 체계개발 LIG 계약 1조 5,593억, ’34년 완료"],
+  ["S67","https://v.daum.net/v/20250723142403012","전자전기 1.8조 사업 한화시스템-LIG 경쟁"],
+  ["S68","https://news.bizwatch.co.kr/article/industry/2023/12/27/0024","LAH 2차 양산 1조 4,000억(약 60개월)"],
+  ["S69","https://m.kedglobal.com/newsView/ked202312270010","LAH 최초 양산 3,020억"],
+  ["S70","https://www.sateconomy.co.kr/news/view/1065601293434655","장사정포요격체계 체계개발 착수(약 4,798억, ’28 완료)"],
+  ["S72","https://dealsite.co.kr/articles/170198","장거리공대공 분야별 1순위(LIG 체계종합·탐색기, 한화 기체·추진·탄두), 사업비"],
+  ["S73","https://www.sedaily.com/article/20108408","초소형위성체계 SAR 군집위성 개발 개찰(한화시스템 3,684.7억 1순위, KAI 4,603억)"],
+  ["S74","https://news.jkn.co.kr/post/970100","K9 스페인 수출 실행계약(’26.8.31, Indra)"],
+  ["S75","https://biz.sbs.co.kr/amp/article/20000329377","미 육군 기동전술포(MTC) 시제 계약(’26.8.18)"],
+  ["S76","https://www.clien.net/service/board/news/19224290","고속중형기동헬기 소요결정·전력화 전망(뉴스1 기사 전재)"],
+  ["S77","https://en.fnnews.com/news/202609091745440861","록히드마틴, X2 기반 HSMUH 공동개발 제안(’26.9)"],
+  ["S78","https://dealsite.co.kr/articles/129719","L-SAM 총사업비·양산 예산, L-SAM-Ⅱ 1조 3,540억"],
+  ["S79","https://www.segye.com/view/20241011521903","UH/HH-60 성능개량 컨소시엄 구도(KAI-한화시스템, 대한항공-LIG)"],
+  ["S80","https://dealsite.co.kr/articles/112282","FA-50 폴란드 48대 약 30억 달러"],
+  ["S81","https://www.asiae.co.kr/en/article/2023052314354158390","FA-50 말레이시아 18대 수출 계약"],
+  ["S82","https://dealsite.co.kr/articles/145502","FA-50 필리핀 12대 추가 계약(’25.6)"],
+  ["S83","https://bizhankook.com/articles/28571.html","L-SAM-Ⅱ 3사 입찰"],
+  ["S84","https://www.finance-scope.com/article/view/scp202605260018","상륙공격헬기 체계개발 계약 약 4,300억, 공대공 무장 통합"],
+  ["S85","https://www.kukinews.com/article/view/kuk202308310048","KAI-Airbus Helicopters LAH·KUH 구성품 300대 발주"],
+  ["S86","https://www.sidae.com/article/2025110615043342305","FA-50M 말레이시아 ’26 첫 인도 예정"],
+  ["S87","https://bbn.kiwoom.com/rfCR12062","키움증권: K9 수출 이력(폴란드 2차 152문 등)"],
+  ["S88","https://www.metroseoul.co.kr/article/20260902500504","K9 폴란드 3차 실행계약 협의, K9A2 현지생산 논의"],
+  ["S89","https://file.alphasquare.co.kr/media/pdfs/company-report/20260210_012450_syyang0901_323.pdf","유진투자증권: 노르웨이 K9 24문 7,600억 등 ’25 수출 계약 내역"]
+ ]],
+ ["ka","대한항공",[
+  ["S36","https://dealsite.co.kr/articles/155150","2025 별도 매출 16조 5,019억·영업이익 1조 5,393억"],
+  ["S36b","https://www.newsspace.kr/news/article.html?no=11919","2025 별도 순이익 9,650억"],
+  ["S37","https://kr.img.news.koreanair.com/wp-content/uploads/2026/01/2025%EB%85%84-4%EB%B6%84%EA%B8%B0-%EC%9E%A0%EC%A0%95-%EC%8B%A4%EC%A0%81-IR-%EC%9E%90%EB%A3%8C.pdf","4Q25 IR: 부채비율 244%, 항공통제기·전자전기 수주"],
+  ["S37b","https://file.alphasquare.co.kr/media/pdfs/company-report/_05074942-003490.pdf","iM증권: 전자전기 1.6조·UH/HH-60 0.8조 수주"],
+  ["S38","https://www.smarttoday.co.kr/ko-kr/articles/112746","’26.3Q 누적 매출 14조 5,798억·영업이익 1조 1,999억"],
+  ["S39","https://www.huffingtonpost.kr/article/258136","항공우주 2025 매출 7,796억·영업이익 243억, MUAV 양산 1호기"],
+  ["S40","https://www.ddaily.co.kr/page/view/2026051916451870845","’26.1Q 수주잔고 4조 7,172억(부문별)"],
+  ["S41","https://www.digitaltoday.co.kr/aigongsi/2137/korean-air-defense-business-agency-contract","UH/HH-60 성능개량 계약 공시 8,302억"],
+  ["S41b","https://www.sidae.com/article/2025042310243291123","UH-60 컨소시엄(LIG·콜린스), 2029년 인도"],
+  ["S42","https://www.heraldk.com/article/2026033000162740953","부산테크센터 2,000억 신규 공장 투자"],
+  ["S43","https://www.kukinews.com/article/view/kuk202502250053","저피탐 무인편대기 출고"],
+  ["S44","https://stock.pstatic.net/stock-research/company/57/20260223_company_178550000.pdf","주요주주 한진칼 외 29인 27.06%"]
+ ]]
+];
+document.getElementById("srcWrap").innerHTML = SRC.map(([k,n,list])=>`<div class="src-group" style="--cc:${CO[k].c}"><h3>${n}</h3><ol>${list.map(([id,u,w])=>`<li id="src-${id}"><span class="id">${id}</span><span><a href="${u}" target="_blank" rel="noopener">${(function(){try{return decodeURI(u)}catch(e){return u}})().replace(/^https?:\/\//,"").slice(0,90)}${u.length>98?"…":""}</a><span class="what">${w}</span></span></li>`).join("")}</ol></div>`).join("");
+
+/* ---- 사업별 진행현황 ---- */
+const CK={kai:"KAI",ha:"한화에어로",hs:"한화시스템",lig:"LIG D&A",ka:"대한항공",rotem:"현대로템",kia:"기아",wia:"현대위아",hhi:"HD현대중공업",hwo:"한화오션"};
+const tag=t=>t.replace(/\{(kai|ha|hs|lig|ka|rotem|kia|wia|hhi|hwo)\}/g,(m,k)=>`<span class="cchip" style="--cc:${CO[k].c}"><i></i>${CK[k]}</span>`);
+// [시장, 구분, 분야, 사업명, 별칭, 주계약, 협력, 경쟁, 사업내용, 사업규모, 현황·일정, 출처]
+const PJ=[
+ ["dom","run","항공","한국형전투기(KF-21) 최초양산","KF-21 Block-I","{kai}","{ha} F414 엔진 · {hs} AESA 레이다","","4.5세대 국산 전투기 Block-I 40대 양산(최초 20대 + 추가 20대).","1차 20대: KAI 1조 9,600억(’24.6)<br>추가 20대: KAI 2조 3,969억 · 한화에어로 엔진 6,232억(’25.6.26)","양산 1호기 공군 인도(’26.9.22), 40대 ’28말 전력화","S61 S60 S07"],
+ ["dom","run","항공","소형무장헬기(LAH) 양산","미르온","{kai}","Airbus Helicopters(구성품 키트)","","육군 500MD·AH-1S 대체 공격헬기 양산.","1차 3,020억(’22.12)<br>2차 약 1조 4,000억(’23.12, 약 60개월)","2차분 ’25.4Q부터 순차 납품, ’26.2Q 납품 지연","S69 S68 S85 S09"],
+ ["dom","run","항공","상륙공격헬기 체계개발","MAH","{kai}","","","마린온 기반 해병대 공격헬기. 기관총·로켓·천검·공대공유도탄 통합.","체계개발 약 4,300억(’22.10~)","’26.7 전투용 적합, ’26.8 감항인증, ’26.10.28 체계개발 종결","S84 S08"],
+ ["dom","run","항공","소해헬기 체계개발","MCH","{kai}","기뢰탐색·처리 임무장비 업체","","마린온 기반 해군 소해헬기(레이저기뢰탐색장비 등 탑재).","공개 자료 미확인","’26.11 개발 완료 예정","S55"],
+ ["dom","run","항공","UH/HH-60 성능개량","블랙호크 성능개량","{ka}","{lig} 항전·임무장비 · Collins Aerospace","종료: {kai}·{hs}·Elbit 컨소시엄","육·공군 특수작전헬기 36대 조종실 디지털화, 엔진·생존·통신장비 개량.","총사업비 약 9,613억<br>계약 8,302억(’25.8~’31.8)","’29년부터 인도","S41 S41b S79"],
+ ["dom","run","항공","항공통제기 2차","AEW&C 2차","L3Harris","{ka} 국내 개조·체계통합(L3Harris와 6,318억 계약) · IAI ELTA 레이다","종료: Boeing E-7A, Saab GlobalEye","Bombardier Global 6500 기반 조기경보통제기 4대.","약 3조(언론)","’25.10 사업자 확정, ’32년까지 인도","S63 S64 S65"],
+ ["dom","run","항공","한국형 전자전기(Block-I) 체계개발","전자전기","{lig}","{ka} 항공기 플랫폼·개조","종료: {hs} 컨소시엄","적 레이다·통신망을 무력화하는 전자전 특수임무기 개발.","총 약 1.8조(언론)<br>LIG 계약 1조 5,593억(’25.12)","’34년 체계개발 완료 목표","S66 S67 S37"],
+ ["dom","run","무인","중고도정찰용무인항공기 양산","MUAV","{ka}","{lig} · {hs} (공동 시제업체)","","고도 10km 이상 운용 공군 전략급 정찰 무인기.","양산 계획 9,800억(’28까지)<br>계약 4,717억(’23.12)","양산 1호기 출고(’26.4), ’27부터 인도","S62 S39"],
+ ["dom","run","무인","저피탐 무인편대기","ADD 기술개발","국방과학연구소 주관 · {ka}","","","유인 전투기와 편대 운용하는 스텔스 무인기.","공개 자료 미확인","1호기 출고(’25.2), 시험 중","S43"],
+ ["dom","run","유도·대공","장거리지대공유도무기(L-SAM) 양산","L-SAM","{lig} 체계종합·대항공기 유도탄","{ha} 대탄도탄 유도탄·발사대 · {hs} 다기능레이다","","탄도탄·항공기 고고도 요격체계 양산.","양산 예산 약 1조 5,000억(추정)<br>한화에어로 7,054억 · 한화시스템 3,573억 · LIG 1,639억(’25.11)","한화에어로 납품 ’30년까지","S33 S78"],
+ ["dom","run","유도·대공","중거리지대공유도무기 Block-Ⅲ 체계개발","천궁-Ⅲ","국방과학연구소 주관 · {lig} 체계종합·유도탄·교전통제소","{hs} 다기능레이다 · {ha} 발사대","","천궁-Ⅱ 대비 요격고도·탐지거리·동시교전능력 향상.","체계개발 약 8,688억<br>LIG 시제 2,166억(’25.12)","’30년까지 개발","S24 S24b"],
+ ["dom","run","유도·대공","장사정포요격체계 체계개발","LAMD · 한국형 아이언돔","국방과학연구소 주관","{lig} · {ha} · {hs} (시제업체)","","다수 장사정포탄을 탐지·추적·요격.","약 4,798억","’25.1 착수, ’28 개발 완료 목표","S70"],
+ ["dom","run","유도·대공","L-SAM-Ⅱ 연구개발","고고도·활공단계 요격","국방과학연구소 주관","{lig} · {ha} · {hs} 참여","","요격고도 60~100km 고고도 요격탄과 활공단계 요격탄 개발.","약 1조 3,540억(’31년까지)","고고도 요격유도탄 체계개발 진행","S78 S83 S28b"],
+ ["dom","run","유도·대공","함대공유도탄-Ⅱ 체계개발","해궁 후속","{lig}","","","함정 탑재 대공 유도탄 개발.","공개 자료 미확인","’24.3~’30.12","S30"],
+ ["dom","run","함정","장보고-Ⅲ Batch-Ⅱ 건조","3,600톤급 잠수함","{hwo}","","","Batch-Ⅱ 잠수함 건조(3번함까지 한화오션).","공개 자료 미확인","건조 진행","S96"],
+ ["dom","run","지상","차세대 중형표준차량 양산","KMTV","{kia}","","","2.5톤·5톤 군용트럭 대체 차세대 중형표준차량.","공개 자료 미확인","’19 사업계약, ’25.6 양산·인도 시작","S92"],
+ ["dom","run","지상","K9자주포 2차 성능개량(Block-Ⅰ) 체계개발","K9A2","{ha}","","","자동 송탄·장전으로 운용 3명, 분당 9발 이상.","공개 자료 미확인","’23.11~’26.12, 시제 ’27.12 납품, 양산 ’27 목표","S17"],
+
+ ["dom","next","우주","초소형위성체계 SAR 군집위성 개발","초소형 SAR 군집위성","1순위 {hs}","","{hs} 3,684.7억(투찰률 65.1%) vs {kai} 4,603억","북한 이동표적 감시용 초소형 SAR 위성 개발(전체 체계 약 40기).","기초금액 5,672억<br>전체 체계 약 1조 4,000억","10.30 개찰, 계약 체결 예정. 개발 ~’31.11","S73 S10"],
+ ["dom","next","유도(항공무장)","장거리공대공유도탄 체계개발","KF-21용 국산 미티어","국방과학연구소 주관","","분야별 1순위: {lig} 체계종합·탐색기 / {ha} 기체·추진기관·탄두 · 추진기관 경쟁에 {rotem} 참여","KF-21 탑재 장거리 공대공유도탄 국산화(미티어 대체).","체계개발 7,535억(’26.12~’33.11)<br>후속 양산 1조 1,471억","협상 중, 12월 계약 예정. LIG 입찰제한 처분(집행정지 심리 중)이 변수","S72 S34 S29"],
+ ["dom","next","함정","한국형 차기구축함(KDDX) 상세설계 및 선도함 건조","KDDX","우선협상 {hwo}","","{hwo} vs {hhi} (0.5점 차). {hhi}는 기본설계 수행","6,000톤급 국산 이지스 구축함 6척.","총사업비 약 7조 8,000억","’26.7.1 우선협상대상자 통보, 계약 협상 중","S94 S94b"],
+ ["dom","next","항공","상륙공격헬기 양산","MAH","{kai} (체계개발 업체)","","","해병대 상륙공격헬기 24대 양산.","공개 자료 미확인","체계개발 종결(’26.10.28) 후 양산 계약 예정","S08"],
+ ["dom","next","대드론","소형무인기 대응체계 양산","대드론","{lig}","","","소형 무인기 탐지·무력화 체계 양산.","체계개발 244억(완료)<br>양산 약 1,223억","방사청이 방산업체 지정취소 검토 요청, 계약 차질 우려","S29c"],
+ ["dom","next","항공","KF-21 후속양산(Block-Ⅱ)","Block-Ⅱ","{kai} (예상)","","","공대지·공대함 무장을 갖춘 다목적형 80대.","공개 자료 미확인","’32년까지 도입 계획","S07b"],
+ ["dom","next","항공","고속중형기동헬기","HSMUH","미정","","국내 주도 개발 제안(국방기술진흥연구소 연구보고서) · 록히드마틴(시코르스키 X2 기반) 공동개발 제안","UH-60 대체. 고속·장거리, 개방형 구조, MUM-T·통합전자전.","미정 (산업 파급효과 약 18.2조 추정)","’24 합참 소요결정, 선행연구·KIDA 사업타당성 후 ’30년대 후반 전력화 전망","S76 S77"],
+
+ ["exp","run","지상","K2 전차 폴란드 2차 실행계약","180대","{rotem}","PGZ(K2PL 63대 현지 생산) · {wia} 120mm 주포","","국내 생산 117대 + 폴란드형 K2PL 63대.","약 8조 7,000억(업계 추정, 비공개)","’25 계약, 2차분 인도 일정 앞당김","S90 S91 S93"],
+ ["exp","run","지상","폴란드 군용차(기아 플랫폼)","KLTV 레그완 등","PGZ·로소막 컨소시엄","{kia} 차량 플랫폼","","기아 플랫폼 기반 군용차 1,266대 기본계약.","기본계약(’25.9), 이행계약 ’35년까지","기아 직접 수주는 아님","S92"],
+ ["exp","run","함정","페루 함정 4척","호위함·해경함·상륙지원함","{hhi}","페루 SIMA 조선소(현지 공동건조)","","3,400톤급 호위함, 2,200톤급 해경함, 상륙지원함 2척.","4억 6,290만 달러(’24.4)","상륙지원함 1번함 현지 진수(’26.8)","S95"],
+ ["exp","run","함정","필리핀 함정","호위함·초계함 등","{hhi}","HD현대필리핀조선소(수빅)","","필리핀 해군 발주 12척 누적.","공개 자료 미확인","현지 조선소 첫 건조선 진수","S95"],
+ ["exp","run","MRO","미 해군 함정 MRO","군수지원함","{hwo}","","","미 해군 군수지원함 정비.","공개 자료 미확인","’25 수주·수행","S97"],
+ ["exp","run","항공","FA-50 폴란드","FA-50GF 12대 · FA-50PL 36대","{kai}","","","폴란드 공군 경공격기 48대(PL은 성능개량형).","약 30억 달러","GF 인도 완료, PL 생산 중","S80 S11"],
+ ["exp","run","항공","FA-50M 말레이시아","18대","{kai}","","","말레이시아 공군 경전투기 18대.","’23.5 계약","’26 첫 인도 예정","S81 S86"],
+ ["exp","run","항공","FA-50PH 필리핀 추가","12대","{kai}","","","필리핀 공군 FA-50PH 12대 추가 도입.","’25.6 계약","생산 중","S82"],
+ ["exp","run","지상","K9 자주포 폴란드 2차 실행계약","152문","{ha}","","","폴란드 육군 K9PL 공급.","’23.12 계약","1차 212문 3년 만에 완납, 2차 인도 진행","S14 S87"],
+ ["exp","run","지상","K9 자주포 노르웨이 추가","24문","{ha}","","","노르웨이 K9 24문 추가 공급.","약 7,600억(증권사 집계)","’25.9 계약","S89"],
+ ["exp","run","지상","K9 자주포 스페인","실행계약","{ha}","Indra Sistemas(현지)","","서유럽 첫 K9 수출.","비공개(6,675억 상회 추산)","’26.8.31 계약","S74"],
+ ["exp","run","지상","미 육군 기동전술포(MTC)","K9 기반 시제","{ha} (한화디펜스USA)","","종료: Elbit America, Anduril, Oshkosh, Leonardo, Rheinmetall, BAE","M777 견인포 대체 후보 시제 6문(옵션 12문).","약 1,417억(최대 약 3,715억)","’26.8.18 계약, 약 4년 시험 후 전력화 결정","S75"],
+ ["exp","run","지상","천무 폴란드 3차 실행계약","천무·유도탄","{ha}","","","폴란드 천무 발사대·유도탄 3차분(51% 지배 JV 통해 연결).","약 5조 6,000억","’30~’33 납품","S14"],
+ ["exp","run","지상","천무 노르웨이","천무","{ha}","","","노르웨이 장거리 정밀화력 도입.","약 1조 3,000억","’26.1Q 계약, ’29년까지 인도","S50 S14"],
+ ["exp","run","지상","레드백 호주","LAND 400 Ph.3","{ha}","","","호주 육군 보병전투장갑차 129대.","공개 자료 미확인","질롱 H-ACE 생산 시작(’26.3)","S18"],
+ ["exp","run","유도·대공","천궁-Ⅱ 중동 수출","UAE·사우디·이라크","{lig} 체계종합·유도탄","{hs} 다기능레이다 · {ha} 발사대","","중거리 지대공 요격체계 수출.","UAE 10개 포대 2조 5,974억(’22.1)<br>사우디 10개 포대 4조 3,398억(’23.11)<br>이라크 8개 포대 3조 7,135억(’24.9)","UAE 납품 진행, 사우디·이라크 순차","S30 S22"],
+ ["exp","run","유도(함정)","해궁 말레이시아","함대공","{lig}","","","말레이시아 해군 함대공유도탄.","약 1,404억","’26.4 계약","S30"],
+
+ ["exp","next","함정","태국 차기 호위함","1척+군수지원","우선협상 {hwo}","","종료: {hhi}, ST Engineering, ASFAT·TAIS, Navantia","태국 해군 호위함 1척 건조와 통합군수지원.","6,833억(최종 계약가 아님), 후속 포함 최대 약 4조(시장 추정)","’26.9.8 우선협상, 본계약 추진","S98"],
+ ["exp","next","함정","캐나다 차세대 잠수함 도입(CPSP)","3,000톤급","TKMS(우선협상)","","{hwo} 차순위(TKMS 협상 결렬 시 협상권)","3,000톤급 잠수함 최대 12척.","최대 60조(30년 MRO 포함 추산)","’26.7.6 TKMS 선정","S99"],
+ ["exp","next","함정","페루 1,500톤급 잠수함 건조","HDS-1500","{hhi}","","","공동개발 후 현지 건조 추진.","미정","공동개발 계약(’25.12), 건조 계약 협의","S95"],
+ ["exp","next","함정","필리핀 잠수함","2척","미정","","{hhi} · {hwo} 등 복수 업체","필리핀 해군 잠수함 2척 도입 검토.","미정","검토 단계","S95"],
+ ["exp","next","지상","K9 자주포 폴란드 3차 실행계약","K9 잔여분","{ha}","","","폴란드 기본계약 잔여 물량, K9A2 현지생산 논의.","미정","협의 중","S88"],
+ ["exp","next","유도·대공","천궁-Ⅱ 추가 수출","카타르·쿠웨이트 등","{lig}","{hs} · {ha}","","카타르·쿠웨이트 최종 논의, 인도네시아 LoI, 루마니아·크로아티아 협상.","루마니아·크로아티아 약 2조(5개 포대, 언론)","협상 중","S30"],
+ ["exp","next","유도·대공","L-SAM 해외","UAE·스위스","{lig}","","","UAE EDGE 그룹과 통합대공망 합의, 스위스 차기 장거리 방공 후보군.","미정","후보·합의 단계","S30"],
+ ["exp","next","유도","비궁 미국","2.75인치 유도로켓","{lig}","","","미국 해외비교시험(FCT) 6발 명중 후 미국 시장 진출 추진.","미정","수출 추진","S35"]
+];
+const CLS=[
+ ["air","항공","고정익·회전익·무인기·특수임무기"],
+ ["fire","화력","자주포·다연장·유도탄(지대공·함대공·공대공 포함)"],
+ ["def","방호","대드론"],
+ ["mob","기동","전차·장갑차·전술차량"],
+ ["sea","함정","수상함·잠수함·함정 MRO"],
+ ["isr","감시정찰·우주","군사위성"]
+];
+function clsOf(r){
+  const n=r[3],a=r[2];
+  if(/L-SAM|중거리지대공|장사정포요격|천궁-Ⅱ|함대공유도탄|해궁|장거리공대공|비궁/.test(n)) return "fire";
+  if(/K9|천무|기동전술포/.test(n)) return "fire";
+  if(/소형무인기 대응/.test(n)) return "def";
+  if(a==="함정"||a==="MRO") return "sea";
+  if(a==="우주") return "isr";
+  if(/K2 전차|중형표준차량|폴란드 군용차|레드백/.test(n)) return "mob";
+  return "air";
+}
+const pjCo=document.getElementById("pjCo"),pjCls=document.getElementById("pjCls");
+ORDER.forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=CK[k];pjCo.appendChild(o)});
+CLS.forEach(c=>{const o=document.createElement("option");o.value=c[0];o.textContent=c[1];pjCls.appendChild(o)});
+let pjM="all";
+function renderPJ(){
+  const co=pjCo.value, cl=pjCls.value;
+  const base=PJ.map((r,i)=>({r,i,c:clsOf(r)}));
+  const rows=base.filter(x=>(cl==="all"||x.c===cl)&&(pjM==="all"||x.r[0]===pjM)&&(co==="all"||(x.r[5]+x.r[6]+x.r[7]).includes("{"+co+"}")));
+  const ord=k=>CLS.findIndex(c=>c[0]===k);
+  rows.sort((x,y)=>ord(x.c)-ord(y.c)||(x.r[0]==="dom"?0:1)-(y.r[0]==="dom"?0:1)||(x.r[1]==="run"?0:1)-(y.r[1]==="run"?0:1)||x.i-y.i);
+  let h="",last="";
+  rows.forEach(({r,c})=>{
+    if(c!==last){last=c;const C=CLS[ord(c)];const n=rows.filter(x=>x.c===c).length;h+=`<tr class="sec"><td colspan="6">${C[1]}<small>${C[2]} · ${n}건</small></td></tr>`}
+    const roles=[["주계약",r[5],""],["협력",r[6],""],["경쟁",r[7],"cmp"]].filter(x=>x[1]).map(x=>`<div class="role ${x[2]}"><span>${x[0]}</span><span>${tag(x[1])}</span></div>`).join("");
+    const st=r[1]==="run"?"진행 중":(r[0]==="exp"?"협상·계약예정":"계약예정·사업화");
+    h+=`<tr><td class="nm"><span class="area">${r[2]}</span><b>${r[3]}</b><span class="sub">${r[4]}</span><span class="badges"><span class="kind ${r[1]}">${st}</span><span class="mkt">${r[0]==="dom"?"국내":"수출"}</span></span></td><td class="ps">${roles}</td><td class="ds">${r[8]}</td><td class="sz">${r[9]}</td><td class="stt">${r[10]}</td><td>${r[11].split(" ").map(x=>`<a class="sup" href="#sources" style="vertical-align:baseline;display:block">${x}</a>`).join("")}</td></tr>`;
+  });
+  document.getElementById("pjBody").innerHTML=h||`<tr><td colspan="6" class="note">조건에 맞는 사업이 없습니다.</td></tr>`;
+  document.getElementById("pjCount").textContent=rows.length+"건";
+  document.getElementById("pjSum").innerHTML=CLS.map(C=>`<span>${C[1]} <b>${base.filter(x=>x.c===C[0]).length}</b></span>`).join("");
+}
+document.getElementById("pjMkt").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#pjMkt button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));pjM=b.dataset.v;renderPJ()});
+pjCo.addEventListener("change",renderPJ);pjCls.addEventListener("change",renderPJ);
+renderPJ();
+
+/* ---- 라우팅 ---- */
+const PAGES=["overview","programs","projects","sources"];
+function route(){
+  const h=(location.hash||"#overview").slice(1);
+  const pg=PAGES.includes(h)?h:"overview";
+  document.querySelectorAll("[data-page]").forEach(d=>d.classList.toggle("show",d.dataset.page===pg));
+  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.tab===pg)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+}
+window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});
+route();
+</script>
+
+</body></html>
